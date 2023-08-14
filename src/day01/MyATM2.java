@@ -35,7 +35,7 @@ public class MyATM2 {
 	} 
 	
 	// 2. 主畫面選單
-	public static void showMenu() {  
+	private static void showMenu() {  
 		// 系統主畫面服務迴圈
 		while (true) {
 			System.out.print("主選單操作:\n1.查詢餘額\n2.存款\n3.提款\n4.退出\n==> ");
@@ -61,12 +61,12 @@ public class MyATM2 {
 	}
 	
 	// 2.1 餘額查詢
-	public static void checkBalance() {  
+	private static void checkBalance() {  
 		System.out.printf("目前餘額 $%d\n", sysBalance);
 	}
 	
 	// 2.2 存款
-	public static void deposit() {  
+	private static void deposit() {  
 		System.out.print("請輸入存款金額:");
 		int depositAmount = sc.nextInt();
 		if(depositAmount <= 0) {
@@ -79,7 +79,7 @@ public class MyATM2 {
 	}
 	
 	// 2.3 提款
-	public static void withdraw() {  
+	private static void withdraw() {  
 		System.out.print("請輸入提款金額:");
 		int withdrawAmount = sc.nextInt();
 		if(withdrawAmount > sysBalance) {
@@ -92,7 +92,7 @@ public class MyATM2 {
 	}
 	
 	// 2.4 離開
-	public static void quit() {  
+	private static void quit() {  
 		System.out.println("謝謝您的使用, 歡迎下次再度光臨");
 		System.exit(0); // 強制離該系統(0:正常狀態, 1:異常狀態)
 	}	
