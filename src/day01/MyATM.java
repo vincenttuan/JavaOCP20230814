@@ -34,7 +34,15 @@ public class MyATM {
 					System.out.printf("目前餘額 $%d\n", sysBalance);
 					break;
 				case 2: // 存款
-					
+					System.out.print("請輸入存款金額:");
+					int depositAmount = sc.nextInt();
+					if(depositAmount <= 0) {
+						System.out.println("存款金額不得為0或負值");
+						continue;
+					} else {
+						sysBalance = sysBalance + depositAmount; // 存入款項
+						System.out.printf("已存款 $%d 成功, 帳戶餘額 $%d\n", depositAmount, sysBalance);
+					}
 					break;
 				case 3: // 提款
 					
