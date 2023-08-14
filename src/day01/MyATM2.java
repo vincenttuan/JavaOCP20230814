@@ -1,10 +1,16 @@
 package day01;
 
+import java.util.Scanner;
+
 // 根據 MyATM 進行優化
 public class MyATM2 {
 	
+	static Scanner sc = new Scanner(System.in);
+	static int sysPin = 1234;
+	static int sysBalance = 10000;
+	
 	public static void main(String[] args) {
-		
+		checkPin();
 	}
 	
 	// 1. 驗證密碼
