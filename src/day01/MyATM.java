@@ -2,8 +2,6 @@ package day01;
 
 import java.util.Scanner;
 
-import javax.sound.midi.Soundbank;
-
 public class MyATM {
 
 	public static void main(String[] args) {
