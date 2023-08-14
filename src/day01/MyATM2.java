@@ -40,7 +40,20 @@ public class MyATM2 {
 		while (true) {
 			System.out.print("主選單操作:\n1.查詢餘額\n2.存款\n3.提款\n4.退出\n==> ");
             int itemId = sc.nextInt(); // 得到使用者所輸入的選單選項
-            
+            switch (itemId) {
+				case 1: // 餘額查詢
+					checkBalance();
+					break;
+				case 2: // 存款
+					deposit();
+					break;
+				case 3: // 提款
+					withdraw();
+					break;
+				case 4: // 離開
+					quit();
+					break;
+			}
 		}
 	}
 	
