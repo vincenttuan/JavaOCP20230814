@@ -53,28 +53,48 @@ public class MyATM2 {
 				case 4: // 離開
 					quit();
 					break;
+				default: 
+					System.out.println("選項輸入錯誤請重新輸入!");
+					break;
 			}
 		}
 	}
 	
 	// 2.1 餘額查詢
 	public static void checkBalance() {  
-		
+		System.out.printf("目前餘額 $%d\n", sysBalance);
 	}
 	
 	// 2.2 存款
 	public static void deposit() {  
-		
+		System.out.print("請輸入存款金額:");
+		int depositAmount = sc.nextInt();
+		if(depositAmount <= 0) {
+			System.out.println("存款金額不得為0或負值");
+			return; // 結束此方法
+		} else {
+			sysBalance = sysBalance + depositAmount; // 存入款項
+			System.out.printf("已存款 $%d 成功, 帳戶餘額 $%d\n", depositAmount, sysBalance);
+		}
 	}
 	
 	// 2.3 提款
 	public static void withdraw() {  
-		
+		System.out.print("請輸入提款金額:");
+		int withdrawAmount = sc.nextInt();
+		if(withdrawAmount > sysBalance) {
+			System.out.println("餘額不足");
+			return; // 結束此方法
+		} else {
+			sysBalance = sysBalance - withdrawAmount; // 提出款項
+			System.out.printf("已提款 $%d 成功, 帳戶餘額 $%d\n", withdrawAmount, sysBalance);
+		}
 	}
 	
 	// 2.4 離開
 	public static void quit() {  
-		
+		System.out.println("謝謝您的使用, 歡迎下次再度光臨");
+		System.exit(0); // 強制離該系統(0:正常狀態, 1:異常狀態)
 	}	
 	
 	
