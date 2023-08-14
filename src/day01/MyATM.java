@@ -2,6 +2,8 @@ package day01;
 
 import java.util.Scanner;
 
+import javax.sound.midi.Soundbank;
+
 public class MyATM {
 
 	public static void main(String[] args) {
@@ -45,7 +47,15 @@ public class MyATM {
 					}
 					break;
 				case 3: // 提款
-					
+					System.out.print("請輸入提款金額:");
+					int withdrawAmount = sc.nextInt();
+					if(withdrawAmount > sysBalance) {
+						System.out.println("餘額不足");
+						continue;
+					} else {
+						sysBalance = sysBalance - withdrawAmount; // 提出款項
+						System.out.printf("已提款 $%d 成功, 帳戶餘額 $%d\n", withdrawAmount, sysBalance);
+					}
 					break;
 				case 4: // 退出
 					System.out.println("謝謝您的使用, 歡迎下次再度光臨");
