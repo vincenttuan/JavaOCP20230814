@@ -34,8 +34,10 @@ public class MyATM {
 					System.out.printf("目前餘額 $%d\n", sysBalance);
 					break;
 				case 2: // 存款
+					
 					break;
 				case 3: // 提款
+					
 					break;
 				case 4: // 退出
 					System.out.println("謝謝您的使用, 歡迎下次再度光臨");
