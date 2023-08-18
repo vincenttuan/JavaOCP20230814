@@ -35,6 +35,7 @@ public class ArrayDemo1 {
 		// 3. 若只是單純想要印出陣列內容可以使用 
 		// java.util.Arrays 所提供的 toString() 方法
 		System.out.println(Arrays.toString(foo));
+		
 	}
 
 }
