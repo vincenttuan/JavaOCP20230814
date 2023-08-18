@@ -1,5 +1,7 @@
 package day02;
 
+import java.util.Arrays;
+
 public class ArrayDemo1 {
 
 	public static void main(String[] args) {
@@ -30,7 +32,9 @@ public class ArrayDemo1 {
 		}
 		System.out.println(); // 換行
 		
-		
+		// 3. 若只是單純想要印出陣列內容可以使用 
+		// java.util.Arrays 所提供的 toString() 方法
+		System.out.println(Arrays.toString(foo));
 	}
 
 }
