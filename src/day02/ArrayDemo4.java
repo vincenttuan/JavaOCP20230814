@@ -27,7 +27,11 @@ public class ArrayDemo4 {
 		double weightCV = getCV(weightSD, weightAvg);
 		System.out.printf("體重的變異係數: %.3f\n", weightCV);
 		
-		
+		if(heightCV > weightCV) {
+			System.out.println("身高分散較大");
+		} else {
+			System.out.println("體重分散較大");
+		}
 	}
 	
 	// 計算變異係數 CV
