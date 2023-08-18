@@ -21,7 +21,7 @@ public class ArrayDemo2 {
 				count++; // 合法成績的數量 + 1
 			}
 		}
-		double avg = (count == 0) ? 0 : (double)sum / count;
+		double avg = (count == 0) ? 0 : (double)sum / count; // 平均
 		
 		System.out.printf("合法成績總分: %d\n", sum);
 		System.out.printf("合法成績平均: %.1f\n", avg);
