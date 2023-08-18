@@ -15,6 +15,14 @@ public class ArrayDemo1 {
 		System.out.print(foo[3] + ", ");
 		System.out.println(foo[4]);
 		
+		// 利用 for-loop 遍歷陣列, 並將每一個元素依序印出
+		// 陣列的最小維度 = 0
+		// 陣列的最大維度 = 陣列的長度 - 1
+		for(int i=0;i<foo.length;i++) {
+			System.out.print(foo[i] + ", ");
+		}
+		System.out.println(); // 換行
+		
 
 	}
 
