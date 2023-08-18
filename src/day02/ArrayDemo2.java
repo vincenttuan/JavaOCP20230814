@@ -6,7 +6,7 @@ public class ArrayDemo2 {
 		int[] scores = {78, 53, -30, 210, 95, 83, 47};
 		// 請印出合法成績
 		for(int x : scores) {
-			if(x >= 0 && x <= 100) {
+			if(x >= 0 && x <= 100) { // 合法成績: 0~100
 				System.out.print(x + ", ");
 			}
 		}
