@@ -1,6 +1,7 @@
 package day03;
 
 import java.util.Arrays;
+import java.util.IntSummaryStatistics;
 
 public class SimpleSort {
 
@@ -27,7 +28,12 @@ public class SimpleSort {
 		int min = Arrays.stream(array).min().getAsInt();
 		System.out.printf("最小: %d\n", min);
 		
-		
+		// 統計
+		IntSummaryStatistics stat = Arrays.stream(array).summaryStatistics();
+		System.out.printf("總和: %d\n", stat.getSum());
+		System.out.printf("平均: %.1f\n", stat.getAverage());
+		System.out.printf("最大: %d\n", stat.getMax());
+		System.out.printf("最小: %d\n", stat.getMin());
 		
 		
 	}
