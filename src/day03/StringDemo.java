@@ -19,6 +19,28 @@ public class StringDemo {
 		}
 		// 利用 charAt(index) 得到 index 所對應的字元
 		System.out.printf("charAt(1) 得到 %c\n", word.charAt(1));
+		// word 字串中有幾個 "s"
+		// 利用 for-loop
+		int count = 0;
+		for(int i=0;i<word.length();i++) {
+			// 逐字比對
+			if(word.charAt(i) == 's') {
+				count++;
+			}
+		}
+		System.out.printf("word 字串中有幾個 \"s\": %d\n", count);
+		// 利用 Java Stream
+		long count2 = word.chars().filter(ch -> ch == 's').count();
+		System.out.printf("word 字串中有幾個 \"s\": %d\n", count2);
+		
 	}
 
 }
+
+
+
+
+
+
+
+
