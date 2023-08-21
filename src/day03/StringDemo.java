@@ -1,5 +1,8 @@
 package day03;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class StringDemo {
 
 	public static void main(String[] args) {
@@ -29,18 +32,20 @@ public class StringDemo {
 			}
 		}
 		System.out.printf("word 字串中有幾個 \"s\": %d\n", count);
+		
 		// 利用 Java Stream
 		long count2 = word.chars().filter(ch -> ch == 's').count();
 		System.out.printf("word 字串中有幾個 \"s\": %d\n", count2);
 		
+		// 利用正則表達式 
+		Pattern pattern = Pattern.compile("s"); // 透過正則表達式來匹配 "s"
+		Matcher matcher = pattern.matcher(word); // 比對
+		int count3 = 0;
+		while (matcher.find()) {
+			count3++;
+		}
+		System.out.printf("word 字串中有幾個 \"s\": %d\n", count3);
+		
 	}
 
 }
-
-
-
-
-
-
-
-
