@@ -24,6 +24,12 @@ public class MultiArrayDemo2 {
 		
 	}
 	
+	// 訂位-電腦選位
+	public static boolean bookSeat(int[][] seats) {
+		
+		return true;
+	}
+	
 	// 取消訂位 cancelSeat
 	public static boolean cancelSeat(int[][] seats, int row, int col) {
 		// 檢查指定位置是否是 1
@@ -37,7 +43,7 @@ public class MultiArrayDemo2 {
 		}
 	}
 	
-	// 訂位
+	// 訂位-人工選位
 	public static boolean bookSeat(int[][] seats, int row, int col) {
 		// 檢查指定位置是否是 0
 		if(seats[row][col] == 0) {
