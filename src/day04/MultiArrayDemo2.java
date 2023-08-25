@@ -14,11 +14,12 @@ public class MultiArrayDemo2 {
 		displaySeatStatus(seats, 2, 2);
 		displayAllSeats(seats);
 		
-		boolean bookResult = bookSeat(seats, 0, 1);
+		boolean bookResult = bookSeat(seats, 0, 1); // 訂位
 		System.out.println(bookResult);
 		displayAllSeats(seats);
 	}
 	
+	// 訂位
 	public static boolean bookSeat(int[][] seats, int row, int col) {
 		// 檢查指定位置是否是 0
 		if(seats[row][col] == 0) {
