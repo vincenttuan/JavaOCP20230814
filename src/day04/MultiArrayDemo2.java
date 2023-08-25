@@ -13,6 +13,22 @@ public class MultiArrayDemo2 {
 		displaySeatStatus(seats, 1, 3);
 		displaySeatStatus(seats, 2, 2);
 		displayAllSeats(seats);
+		
+		boolean bookResult = bookSeat(seats, 0, 1);
+		System.out.println(bookResult);
+		displayAllSeats(seats);
+	}
+	
+	public static boolean bookSeat(int[][] seats, int row, int col) {
+		// 檢查指定位置是否是 0
+		if(seats[row][col] == 0) {
+			seats[row][col] = 1;
+			System.out.println("訂位成功!");
+			return true;
+		} else {
+			System.out.println("很抱歉, 該座位已被預訂!");
+			return false;
+		}
 	}
 	
 	// 指定座位狀態
