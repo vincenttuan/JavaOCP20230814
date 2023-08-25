@@ -6,7 +6,8 @@ public class StringAndArray {
 		String id = "A123456789";
 		int e1 = 1; // A
 		
-		char[] chars = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
+		//char[] chars = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
+		char[] chars = id.substring(1).toCharArray();
 		int[] dx     = {8, 7, 6, 5, 4, 3, 2, 1, 1};
 		
 		//System.out.println(chars[0]-48);
