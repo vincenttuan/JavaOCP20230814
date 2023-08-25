@@ -22,12 +22,24 @@ public class MultiArrayDemo2 {
 		System.out.println(cancelResult);
 		displayAllSeats(seats);
 		
+		boolean autoBookResult = bookSeat(seats); // 電腦選位
+		System.out.println(autoBookResult);
+		displayAllSeats(seats);
 	}
 	
 	// 訂位-電腦選位
 	public static boolean bookSeat(int[][] seats) {
-		
-		return true;
+		for(int row=0;row<seats.length;row++) {
+			for(int col=0;col<seats[row].length;col++) {
+				if(seats[row][col] == 0) {
+					seats[row][col] = 1;
+					System.out.printf("電腦已經幫您選擇第%d排第%d個位置\n", row+1, col+1);
+					return true;
+				}
+			}
+		}
+		System.out.println("很抱歉, 所有位置都已經被預訂了");
+		return false;
 	}
 	
 	// 取消訂位 cancelSeat
