@@ -3,7 +3,7 @@ package day04;
 public class StringAndArray {
 
 	public static void main(String[] args) {
-		String id = "A123456789";
+		String id = "A212700974";
 		int e1 = 1; // A
 		
 		//char[] chars = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
