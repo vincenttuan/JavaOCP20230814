@@ -5,6 +5,8 @@ package day04;
 public class StringBuilderMutabledemo {
 	
 	public static void main(String[] args) {
+		// StringBuilder (Java 5.0 才有的, 使用情境單工作業模式)
+		// StringBuffer (使用情境多執行緒)
 		StringBuilder sb = new StringBuilder("Hello");
 		sb.append("World");
 		System.out.println(sb);
