@@ -17,6 +17,24 @@ public class MultiArrayDemo2 {
 		boolean bookResult = bookSeat(seats, 0, 1); // 訂位
 		System.out.println(bookResult);
 		displayAllSeats(seats);
+		
+		boolean cancelResult = cancelSeat(seats, 0, 1); // 取消訂位
+		System.out.println(cancelResult);
+		displayAllSeats(seats);
+		
+	}
+	
+	// 取消訂位 cancelSeat
+	public static boolean cancelSeat(int[][] seats, int row, int col) {
+		// 檢查指定位置是否是 1
+		if(seats[row][col] == 1) {
+			seats[row][col] = 0;
+			System.out.println("取消訂位成功!");
+			return true;
+		} else {
+			System.out.println("很抱歉, 該座位並未被預訂, 無法取消!");
+			return false;
+		}
 	}
 	
 	// 訂位
