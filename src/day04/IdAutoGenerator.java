@@ -5,8 +5,10 @@ import java.util.Random;
 public class IdAutoGenerator {
 	
 	public static void main(String[] args) {
-		String id = getId();
-		System.out.println(id);
+		for(int i=1;i<=100;i++) {
+			String id = getId();
+			System.out.printf("%03d: %s\n", i, id);
+		}
 	}
 	
 	public static String getId() {
@@ -18,6 +20,8 @@ public class IdAutoGenerator {
 			for(int i=0;i<chars.length;i++) {
 				if(i==0) {
 					chars[i] = (char) (random.nextInt(2) + 48 + 1);
+				} else if(i==1) {
+					chars[i] = (char) (random.nextInt(6) + 48);
 				} else {
 					chars[i] = (char) (random.nextInt(10) + 48);
 				}
