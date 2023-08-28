@@ -24,7 +24,7 @@ public class ArrayStream7 {
 							  .average()
 							  .orElse(0);
 		
-		
+		System.out.printf("平均年齡: %.1f\n", avgAge);
 		
 		
 	}
