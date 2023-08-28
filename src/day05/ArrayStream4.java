@@ -12,6 +12,7 @@ public class ArrayStream4 {
 		int[] scores = {100, 50, 40, 70, 90};
 		// 請計算出"及格"的有幾人?總分?平均?最高?最低?
 		// Java 8 以前
+		// 請回家自行撰寫
 		
 		// Java 8 以後
 		IntSummaryStatistics stat = Arrays.stream(scores)
