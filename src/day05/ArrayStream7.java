@@ -23,10 +23,19 @@ public class ArrayStream7 {
 							  .map(birthYear -> currentYear-birthYear) // 23, 15, 18
 							  .average()
 							  .orElse(0);
-		
 		System.out.printf("平均年齡: %.1f\n", avgAge);
 		
+		// 在一個 mapToInt() 方法中完成所有轉換
+		// 印出每一個年齡 ?
+		Arrays.stream(births)
+			  .mapToInt(birth -> currentYear-Integer.parseInt(birth.substring(0, 4))) // 23, 15, 18
+			  .forEach(out::println);
 		
+		// 請問平均年齡幾歲 ?
+		double avgAge2 = Arrays.stream(births)
+				  				.mapToInt(birth -> currentYear-Integer.parseInt(birth.substring(0, 4))) // 23, 15, 18
+				  				.average().orElse(0);
+		System.out.printf("平均年齡: %.1f\n", avgAge2);
 	}
 
 }
