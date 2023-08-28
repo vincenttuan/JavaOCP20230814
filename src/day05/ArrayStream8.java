@@ -24,8 +24,9 @@ public class ArrayStream8 {
 		}
 		
 		double avgSalary = (count > 0) ? totalSalary / count : 0;
-		System.out.printf("年資超過5年的平均薪資 $%.1f\n", avgSalary);
+		System.out.printf("年資超過5年的平均薪資 $%,.1f\n", avgSalary);
 		
-		
+		// 利用 Java 8 Stream 來完成
+		// homework ..
 	}
 }
