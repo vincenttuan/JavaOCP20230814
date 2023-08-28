@@ -17,7 +17,7 @@ public class ArrayStream5 {
 					 .filter(score -> score != null)
 					 .filter(score -> score.matches("\\d+")) // "100", "70", "40", "90", "-50"
 					 .mapToInt(score -> Integer.parseInt(score)) // 100, 70, 40, 90, -50
-					 .filter(score -> score >= 60)
+					 .filter(score -> score >= 60) // 100, 70, 90
 					 .summaryStatistics();
 		
 		System.out.printf("及格的有 %d 人 總分 %d 平均 %.1f 最高 %d 最低 %d\n",
