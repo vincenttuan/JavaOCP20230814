@@ -12,7 +12,12 @@ public class ArrayStream6 {
 		Arrays.stream(names)  // "John", "Bob", "Vincent", "Anita", "Jo"
 			  .mapToInt(name -> name.length()) // 4, 3, 7, 5, 2
 			  .forEach(out::println);
-
+		// 平均姓名有幾個字
+		double avg = Arrays.stream(names)  // "John", "Bob", "Vincent", "Anita", "Jo"
+			  			   .mapToInt(name -> name.length()) // 4, 3, 7, 5, 2
+			  			   .average() // 計算平均
+			  			   .orElse(0); // 若沒有平均則回傳 0
+		System.out.println(avg);
 	}
 
 }
