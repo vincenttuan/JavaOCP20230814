@@ -10,10 +10,19 @@ public class ArrayStream3 {
 		int[] scores = {100, 50, 40, 70, 90};
 		// 印出及格分數的總分
 		// Java 8 以前
-		
+		int sum = 0;
+		for(int score : scores) {
+			if(score >= 60) {
+				sum += score;
+			}
+		}
+		System.out.printf("總分: %d\n", sum);
 		
 		// Java 8 以後
-		
+		int sum2 = Arrays.stream(scores)
+						 .filter(score -> score >= 60)
+						 .sum();
+		System.out.printf("總分: %d\n", sum2);
 		
 	}
 
