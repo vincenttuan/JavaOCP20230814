@@ -23,8 +23,6 @@ public class ArrayStream5 {
 		System.out.printf("及格的有 %d 人 總分 %d 平均 %.1f 最高 %d 最低 %d\n",
 				 stat.getCount(), stat.getSum(), stat.getAverage(), stat.getMax(), stat.getMin());
 
-				
-		
 	}
 
 }
