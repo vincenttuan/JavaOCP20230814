@@ -9,10 +9,10 @@ public class Car {
 		System.out.println("Car 建構子1");
 	}
 	
-	Car(String c, int s) {
+	Car(String color, int speed) {
 		System.out.println("Car 建構子2");
-		color = c;
-		speed = s;
+		this.color = color;
+		this.speed = speed;
 	}
 	
 	Car(String c) {
