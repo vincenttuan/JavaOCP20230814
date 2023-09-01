@@ -30,7 +30,13 @@ public class CarDemo5 {
 				  }
 			  })
 			  .forEach(car -> System.out.printf("%s, %d\n", car.color, car.speed));
-			
+		
+		// 印出平均速度 
+		double avg = Arrays.stream(cars)    // car1, car2, car3 的資料
+						   .mapToInt(car -> car.speed)  // 60, 85, 60 三台車的速度 speed 資料
+						   .average()
+						   .orElse(0); // 若沒有得到平均就以 0 來表示
+		System.out.printf("平均速度: %.1f km\n", avg);
 	}
 
 }
