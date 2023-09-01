@@ -29,7 +29,7 @@ public class DrinkDemo2 {
 			  .filter(drink -> drink.name.equals("牛奶")) // 過濾出牛奶
 			  .forEach(drink -> {
 				  drink.sip(5);    // 喝 5cc
-				  drink.sip(200);  // 喝 20cc
+				  drink.sip(20);  // 喝 20cc
 			  }); // 喝牛奶
 		
 		// 4.印出飲料資料
