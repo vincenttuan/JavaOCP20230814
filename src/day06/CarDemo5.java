@@ -10,6 +10,7 @@ public class CarDemo5 {
 		
 		// 建立 Car[] 將 car1~car3 放入
 		Car[] cars = {car1, car2, car3};
+		System.out.println(cars);
 		// 請將黑車加速一次, 紅車減速二次
 		// 最後印出每一台車的顏色與車速
 		// 請用 Java 8 Stream 實現
