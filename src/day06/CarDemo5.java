@@ -29,10 +29,7 @@ public class CarDemo5 {
 						break;
 				  }
 			  })
-			  .forEach(car -> {
-					// 印出資訊
-					System.out.printf("%s, %d\n", car.color, car.speed);
-			  });
+			  .forEach(car -> System.out.printf("%s, %d\n", car.color, car.speed));
 			
 	}
 
