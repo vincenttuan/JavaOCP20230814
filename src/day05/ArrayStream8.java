@@ -1,5 +1,7 @@
 package day05;
 
+import java.util.stream.IntStream;
+
 public class ArrayStream8 {
 	public static void main(String[] args) {
 		// 想要知道年資超過5年有誰且平均薪資為何?
@@ -27,6 +29,12 @@ public class ArrayStream8 {
 		System.out.printf("年資超過5年的平均薪資 $%,.1f\n", avgSalary);
 		
 		// 利用 Java 8 Stream 來完成
-		// homework ..
+		// homework .. (Wilson作品)
+		double avgSalary2 = IntStream.range(0, yearOfExperience.length)
+                .filter(i -> yearOfExperience[i] >= 5)
+                .mapToDouble(i -> salaries[i])
+                .average()
+                .orElse(0);
+		System.out.println(avgSalary2);
 	}
 }
