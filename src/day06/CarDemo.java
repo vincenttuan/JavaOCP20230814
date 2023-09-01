@@ -16,6 +16,11 @@ public class CarDemo {
 		car1.accelerate();
 		// 印出資訊
 		System.out.printf("%s, %d\n", car1.color, car1.speed);
+		// 減速 2 次
+		car1.brake();
+		car1.brake();
+		// 印出資訊
+		System.out.printf("%s, %d\n", car1.color, car1.speed);
 		
 	}
 
