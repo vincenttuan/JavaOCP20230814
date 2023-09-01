@@ -30,8 +30,12 @@ public class DrinkDemo3 {
 									 .sum(); // 1000
 		System.out.printf("冷飲的總容量: %,d cc\n", coldDrinkVolume2);
 									 
-		
-
+		// 計算熱飲的總容量
+		int hotDrinkVolume = Arrays.stream(drinks)
+								   .filter(drink -> drink.temperature > 60) // Drink("咖啡", 75, 500), Drink("牛奶", 65, 200)
+								   .mapToInt(drink -> drink.volume)         // 500, 200
+								   .sum();
+		System.out.printf("熱飲的總容量: %,d cc\n", hotDrinkVolume);
 	}
 
 }
