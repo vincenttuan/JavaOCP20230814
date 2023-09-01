@@ -22,6 +22,9 @@ public class Drink {
 	public void sip(int volume) { // 啜飲
 		if(volume > 0) {
 			this.volume -= volume;
+			if(this.volume < 0) {
+				this.volume = 0;
+			}
 		}
 	}
 	
