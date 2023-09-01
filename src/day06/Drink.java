@@ -20,8 +20,13 @@ public class Drink {
 	}
 	
 	public void sip(int volume) { // 啜飲
-		this.volume -= volume;
+		if(volume > 0) {
+			this.volume -= volume;
+		}
 	}
 	
+	public void print() { // 印出 drink 物件內的資料
+		System.out.printf("飲料名稱: %s 溫度: %d °C 容量: %d cc\n", name, temperature, volume);
+	}
 	
 }
