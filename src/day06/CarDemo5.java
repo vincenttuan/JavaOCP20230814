@@ -16,8 +16,8 @@ public class CarDemo5 {
 		// 請將黑車加速一次, 紅車減速二次
 		// 最後印出每一台車的顏色與車速
 		// 請用 Java 8 Stream 實現
-		Arrays.stream(cars)
-			  .peek(car -> {  // 觀察每一個元素
+		Arrays.stream(cars)   // car1, car2, car3 的資料
+			  .peek(car -> {  // 觀察每一個元素(car)
 				  switch (car.color) {
 					case "黑":
 						car.accelerate(); // 加速一次
