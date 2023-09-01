@@ -10,7 +10,13 @@ public class CarDemo {
 		car1.speed = 60;
 		// 印出資訊
 		System.out.printf("%s, %d\n", car1.color, car1.speed);
-
+		// 加速 3 次
+		car1.accelerate();
+		car1.accelerate();
+		car1.accelerate();
+		// 印出資訊
+		System.out.printf("%s, %d\n", car1.color, car1.speed);
+		
 	}
 
 }
