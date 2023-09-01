@@ -15,6 +15,16 @@ public class Car {
 		speed = s;
 	}
 	
+	Car(String c) {
+		System.out.println("Car 建構子3");
+		color = c;
+	}
+	
+	Car(int s) {
+		System.out.println("Car 建構子4");
+		speed = s;
+	}
+	
 	void accelerate() { // 物件方法: 加速
 		speed += 5; // speed = speed + 5;
 	}
