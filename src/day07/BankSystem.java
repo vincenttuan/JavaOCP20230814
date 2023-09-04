@@ -19,6 +19,8 @@ public class BankSystem {
 		
 		// 根據 actName 找到指定 Account 物件
 		Optional<Account> optAct = Arrays.stream(accounts)
+				.parallel() // 平行運算
+				//.sequential()
 				.filter(act -> act.getName().equals(actName))
 				.findAny();
 		// 判斷是否有找到 ?
