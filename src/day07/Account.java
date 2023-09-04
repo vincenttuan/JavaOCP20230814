@@ -31,6 +31,7 @@ public class Account {
 	
 	public void transfer(int amount, Account acct) { // 轉帳
 		if(amount > 0 && amount <= this.balance) {
+			this.balance -= amount; // 自己要扣掉轉帳金額
 			acct.deposit(amount); // 對轉帳物件調用存款方法
 			System.out.printf("帳戶: %s 轉帳: %,d 成功\n", name, amount);
 		} else {
