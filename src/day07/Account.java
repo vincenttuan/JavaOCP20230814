@@ -10,6 +10,10 @@ public class Account {
 		this.balance = initBalance;
 	}
 	
+	public String getName() { // 取得帳戶名稱
+		return name;
+	}
+	
 	public void deposit(int amount) { // 存款
 		if(amount > 0) {
 			this.balance += amount;
