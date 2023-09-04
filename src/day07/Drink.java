@@ -1,22 +1,24 @@
 package day07;
 
 public class Drink {
+ 
 	private String name;
+	 
 	private int price;
-	
+	 
 	public String getName() {
-		return name;
+		return null;
 	}
+	 
 	public void setName(String name) {
-		this.name = name;
 	}
+	 
 	public int getPrice() {
-		return price;
+		return 0;
 	}
+	 
 	public void setPrice(int price) {
-		this.price = price;
 	}
-	
-	
-	
+	 
 }
+ 

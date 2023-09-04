@@ -1,15 +1,15 @@
 package day07;
 
 public class Coffee extends Drink {
-	private String roast; // 烘培法
-
+ 
+	private String roast;
+	 
 	public String getRoast() {
-		return roast;
+		return null;
 	}
-
+	 
 	public void setRoast(String roast) {
-		this.roast = roast;
 	}
-	
-	
+	 
 }
+ 
