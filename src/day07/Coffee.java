@@ -1,7 +1,5 @@
 package day07;
 
-public class Coffee {
-	private String name;
-	private int price;
+public class Coffee extends Drink {
 	private String roast; // 烘培法
 }
