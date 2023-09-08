@@ -14,7 +14,7 @@ public class Change {
 		int amount = scanner.nextInt();
 		// 計算找零金額
 		int change = amount - price;
-		System.out.printf("找零金額:\n", change);
+		System.out.printf("找零金額: %d 元\n", change);
 		// 計算每個銅板(50, 10, 5, 1)各要找幾個 ?
 		int coin50 = 0;
 		int coin10 = 0;
