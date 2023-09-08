@@ -17,7 +17,16 @@ public class Change2 {
 		Arrays.stream(moneyArray)
 			  //.forEach(money -> money.display());
 			  .forEach(Money::display);
-
+		
+		// 多型
+		Money x = new Money(1000);
+		x.display();
+		Money y = new Note(1000, "1000元");
+		y.display();
+		Money z = new Coin(10, "10元");
+		z.display();
+		
+		
 	}
 
 }
