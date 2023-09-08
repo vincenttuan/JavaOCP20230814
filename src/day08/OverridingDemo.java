@@ -25,7 +25,7 @@ public class OverridingDemo {
 		System.out.println(son.x); // 200
 		son.display(); // Son 200
 		
-
+		
 	}
 
 }
