@@ -16,6 +16,14 @@ public class Change {
 		// 計算找零金額
 		int change = amount - price;
 		System.out.printf("找零金額: %d 元\n", change);
+		
+		// 計算每張紙鈔(500, 100) 各要找幾張 ?
+		int note500 = change / 500;
+		change = change % 500;
+		
+		int note100 = change / 100;
+		change = change % 100;
+		
 		// 計算每個銅板(50, 10, 5, 1)各要找幾個 ?
 		// 假設 change = 73
 		int coin50 = change / 50; // 73/50 = 1 個 50
@@ -29,6 +37,8 @@ public class Change {
 		
 		int coin1 = change;
 		
+		System.out.printf("500元 %d 張\n", note500);
+		System.out.printf("100元 %d 張\n", note100);
 		System.out.printf("50元 %d 個\n", coin50);
 		System.out.printf("10元 %d 個\n", coin10);
 		System.out.printf("5元 %d 個\n", coin5);
