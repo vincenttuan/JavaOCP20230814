@@ -7,6 +7,10 @@ public class Money {
 		this.value = value;
 	}
 	
+	public int getValue() {
+		return value;
+	}
+	
 	public void display() {
 		System.out.printf("價值 %d\n", value);
 	}

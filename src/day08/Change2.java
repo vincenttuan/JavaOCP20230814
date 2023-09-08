@@ -26,6 +26,9 @@ public class Change2 {
 		Money z = new Coin(10, "10元");
 		z.display();
 		
+		// 假設 moneyArray 是存錢筒, 試問存錢筒中有多少錢
+		
+		
 		
 	}
 
