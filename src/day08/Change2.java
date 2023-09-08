@@ -1,5 +1,7 @@
 package day08;
 
+import java.util.Arrays;
+
 public class Change2 {
 
 	public static void main(String[] args) {
@@ -12,7 +14,9 @@ public class Change2 {
 				new Coin(1, "1元"),
 		}; 
 		
-		
+		Arrays.stream(moneyArray)
+			  //.forEach(money -> money.display());
+			  .forEach(Money::display);
 
 	}
 
