@@ -9,7 +9,7 @@ public class Coin extends Money {
 	}
 	
 	public void display() {
-		System.out.printf("%s 價值 %d\n", label, value);
+		System.out.printf("%s硬幣價值 $%d\n", label, value);
 	}
 	
 }
