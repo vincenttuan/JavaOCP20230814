@@ -9,7 +9,7 @@ public class Note extends Money {
 	}
 	
 	public void display() {
-		System.out.printf("%s紙鈔價值 $%d\n", label, value);
+		System.out.printf("%s紙鈔價值 $%d 可換 %d 張\n", label, value, count);
 	}
 	
 }
