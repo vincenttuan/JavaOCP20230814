@@ -3,6 +3,7 @@ package day08;
 import java.util.Scanner;
 
 // 找零錢程式
+// 紙鈔: 500, 100
 // 零錢: 50, 10, 5, 1
 public class Change {
 
