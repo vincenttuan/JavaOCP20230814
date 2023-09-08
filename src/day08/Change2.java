@@ -27,9 +27,19 @@ public class Change2 {
 		z.display();
 		
 		// 假設 moneyArray 是存錢筒, 試問存錢筒中有多少錢
+		int sum = 0;
+		for(Money money : moneyArray) {
+			System.out.println(money.getValue());
+			sum += money.getValue();
+		}
+		System.out.printf("sum = %d\n", sum);
 		
-		
-		
+		// 透過 java stream 來計算
+		int sum2 = Arrays.stream(moneyArray)           // [Note,Note,Coin,Coin,Coin]
+						 // map 在這裡就是轉換的意思
+						 .mapToInt(m -> m.getValue())  // [500, 100, 50, 10, 5, 1] 
+						 .sum();
+		System.out.printf("sum2 = %d\n", sum2);
 	}
 
 }
