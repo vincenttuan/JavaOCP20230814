@@ -1,5 +1,7 @@
 package day09;
 
+import java.util.Arrays;
+
 public class OrderMain {
 
 	public static void main(String[] args) {
@@ -15,10 +17,21 @@ public class OrderMain {
 		// 訂購單(購物車)
 		Product[] cart = {
 				burger1, fries1, drink1,
-				burger3, fries1, drink2
+				burger3, fries2, drink2
 		};
 		
 		// 請計算總價(要考慮服務費)
+		int sum = 0;
+		for(Product product : cart) {
+			sum += product.getPrice();
+		}
+		System.out.printf("總價: %d\n", sum);
+		System.out.printf("總價(含服務費): %.0f\n", sum * (1 + Product.SERVICE_FEE_RATE));
+		
+		double sum2 = Arrays.stream(cart).mapToDouble(Product::getPrice).sum();
+		System.out.printf("總價: %.0f\n", sum2);
+		System.out.printf("總價(含服務費): %.0f\n", sum2 * (1 + Product.SERVICE_FEE_RATE));
+		
 		
 	}
 
