@@ -9,12 +9,21 @@ interface A {
 
 interface B {
 	void foo();
+	default void bar() {
+		System.out.println("Bar B");
+	}
 }
 
 class C implements A, B {
 	@Override
 	public void foo() {
 		System.out.println("Foo");
+	}
+
+	@Override
+	public void bar() {
+		A.super.bar();
+		B.super.bar();
 	}
 }
 
