@@ -1,5 +1,7 @@
 package day10;
 
+import java.util.Date;
+
 interface Bar {
 	String NAME = "Bar"; // public static final
 	void foo(); // public abstract
@@ -54,7 +56,12 @@ interface SmartDevice { // 智能設備
 class SmartA implements SmartDevice { // 智能設備 A
 	@Override
 	public void turnOn() {
-		System.out.println("Smart A 開啟");
+		// 自我檢查邏輯 
+		if(new Date().getTime() % 2 == 0) {
+			System.out.println("Smart A 開啟");
+		} else {
+			SmartDevice.displayError();
+		}
 	}
 	@Override
 	public void turnOff() {
@@ -79,14 +86,14 @@ public class InterfaceDemo {
 		// 建立 Smart A
 		SmartDevice smartA = new SmartA();
 		smartA.turnOn();
-		smartA.turnOn();
+		smartA.turnOff();
 		smartA.displayBrand();
 		smartA.displayUptime(8, 22);
 		
 		// 建立 Smart B
 		SmartDevice smartB = new SmartB();
 		smartB.turnOn();
-		smartB.turnOn();
+		smartB.turnOff();
 		smartB.displayBrand();
 		smartB.displayUptime(0, 24);
 		
