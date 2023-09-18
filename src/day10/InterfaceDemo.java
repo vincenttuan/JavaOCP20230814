@@ -23,6 +23,34 @@ interface Bar {
 	}
 }
 
+interface SmartDevice { // 智能設備
+	String BRAND = "SmartHome Inc"; // 品牌名稱
+	
+	// 啟動/關閉的抽象方法
+	void turnOn();
+	void turnOff();
+	
+	// 透過一個 default 方法來顯示設備名稱 
+	default void displayBrand() {
+		System.out.println("智能設備品牌名稱: " + BRAND);
+	}
+	
+	// 利用 static 方法來顯示一般錯誤
+	static void displayError() {
+		System.out.println("不支援此服務");
+	}
+	
+	// 設計一個 private 方法來計算使用設備的時間 
+	private int uptimeHours(int startHour, int endHour) {
+		return endHour - startHour;
+	} 
+	
+	// 透過一個 default 方法來顯示設備運行時間
+	default void displayUptime(int startHour, int endHour) {
+		System.out.println("設備運行時間: " + uptimeHours(startHour, endHour));
+	}
+}
+
 
 public class InterfaceDemo {
 
