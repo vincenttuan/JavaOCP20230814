@@ -76,8 +76,33 @@ class SmartB implements SmartDevice { // 智能設備 B
 public class InterfaceDemo {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		// 建立 Smart A
+		SmartDevice smartA = new SmartA();
+		smartA.turnOn();
+		smartA.turnOn();
+		smartA.displayBrand();
+		smartA.displayUptime(8, 22);
+		
+		// 建立 Smart B
+		SmartDevice smartB = new SmartB();
+		smartB.turnOn();
+		smartB.turnOn();
+		smartB.displayBrand();
+		smartB.displayUptime(0, 24);
+		
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
