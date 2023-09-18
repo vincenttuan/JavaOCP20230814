@@ -9,7 +9,7 @@ public class Bread extends Food {
 	
 	@Override
 	public String getName() {
-		return name;
+		return String.format("%s($%d)", name, price);
 	}
 
 	@Override
