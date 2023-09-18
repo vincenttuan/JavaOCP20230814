@@ -5,5 +5,5 @@ public abstract class Food {
 	protected int price;
 	
 	public abstract String getName();
-	public abstract int getprice();
+	public abstract int getPrice();
 }
