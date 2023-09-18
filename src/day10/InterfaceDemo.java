@@ -51,6 +51,27 @@ interface SmartDevice { // 智能設備
 	}
 }
 
+class SmartA implements SmartDevice {
+	@Override
+	public void turnOn() {
+		System.out.println("Smart A 開啟");
+	}
+	@Override
+	public void turnOff() {
+		System.out.println("Smart A 關閉");
+	}
+}
+
+class SmartB implements SmartDevice {
+	@Override
+	public void turnOn() {
+		System.out.println("Smart B 開啟");
+	}
+	@Override
+	public void turnOff() {
+		System.out.println("Smart B 關閉");
+	}
+}
 
 public class InterfaceDemo {
 
