@@ -51,7 +51,7 @@ interface SmartDevice { // 智能設備
 	}
 }
 
-class SmartA implements SmartDevice {
+class SmartA implements SmartDevice { // 智能設備 A
 	@Override
 	public void turnOn() {
 		System.out.println("Smart A 開啟");
@@ -62,7 +62,7 @@ class SmartA implements SmartDevice {
 	}
 }
 
-class SmartB implements SmartDevice {
+class SmartB implements SmartDevice { // 智能設備 B
 	@Override
 	public void turnOn() {
 		System.out.println("Smart B 開啟");
