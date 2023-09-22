@@ -4,6 +4,14 @@
   <artifactId>JavaOCP20230814</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   
+  <dependencies>
+	  <dependency>
+	    <groupId>com.google.code.gson</groupId>
+	    <artifactId>gson</artifactId>
+	    <version>2.8.8</version> <!-- 使用最新的版本 -->
+	</dependency>
+  </dependencies>
+  
   <build>
     <sourceDirectory>src</sourceDirectory>
     <resources>
