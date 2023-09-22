@@ -9,8 +9,10 @@ public class MovingAveragePredication {
 	public static void main(String[] args) {
 		int[] values = {10, 20, 15, 12, 18, 15}; // ?
 		//               1   2   3   4   5   6      7 天
-		// 請透過移動平均法來預測第 7 天的數字
-
+		// 請透過3日移動平均法來預測第 7 天的數字
+		int len = values.length;
+		double predication = (values[len-1] + values[len-2] + values[len-3]) / 3.0;
+		System.out.println(predication);
 	}
 
 }
