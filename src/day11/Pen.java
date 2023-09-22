@@ -12,18 +12,21 @@ public class Pen {
 	}
 	
 	@Override
-	public boolean equals(Object obj) {
-		if(obj == this) {
-			return true;
-		}
-		if(!(obj instanceof Pen)) {
-			return false;
-		}
-		Pen pen = (Pen)obj;
-		return Objects.equals(color, pen.color) && price == pen.price;
+	public int hashCode() {
+		return Objects.hash(color, price);
 	}
 
-
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Pen other = (Pen) obj;
+		return Objects.equals(color, other.color) && price == other.price;
+	}
 
 	@Override
 	public String toString() {
