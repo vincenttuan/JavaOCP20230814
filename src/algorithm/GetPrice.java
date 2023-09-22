@@ -1,6 +1,7 @@
 package algorithm;
 
 import java.net.URL;
+import java.util.List;
 import java.util.Scanner;
 
 import com.google.gson.Gson;
@@ -18,6 +19,11 @@ public class GetPrice {
 		StockData stockData = gson.fromJson(jsonString, StockData.class);
 		System.out.println(stockData);
 		
+		// "日期","成交股數","成交金額","開盤價","最高價","最低價","收盤價","漲跌價差","成交筆數"
+		System.out.println(stockData.getFields().get(6));
+		for(List<String> list : stockData.getData()) {
+			System.out.println(list.get(6)); // 6 收盤價的位置
+		}
 	}
 
 }
