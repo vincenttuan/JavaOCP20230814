@@ -3,6 +3,8 @@ package algorithm;
 import java.net.URL;
 import java.util.Scanner;
 
+import com.google.gson.Gson;
+
 public class GetPrice {
 
 	public static void main(String[] args) throws Exception {
@@ -11,6 +13,11 @@ public class GetPrice {
 								.useDelimiter("\\A")
 								.next();
 		System.out.println(jsonString);
+		
+		Gson gson = new Gson();
+		StockData stockData = gson.fromJson(jsonString, StockData.class);
+		System.out.println(stockData);
+		
 	}
 
 }

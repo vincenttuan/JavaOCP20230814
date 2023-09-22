@@ -1,14 +1,13 @@
 package algorithm;
 
 import java.util.List;
-import java.util.Date;
 
 public class StockData {
 	private String stat;
     private String date;
     private String title;
     private List<String> fields;
-    private List<List<Date>> data;
+    private List<List<String>> data;
     private List<String> notes;
     private int total;
     
@@ -36,10 +35,10 @@ public class StockData {
 	public void setFields(List<String> fields) {
 		this.fields = fields;
 	}
-	public List<List<Date>> getData() {
+	public List<List<String>> getData() {
 		return data;
 	}
-	public void setData(List<List<Date>> data) {
+	public void setData(List<List<String>> data) {
 		this.data = data;
 	}
 	public List<String> getNotes() {
