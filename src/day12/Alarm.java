@@ -6,6 +6,17 @@ public class Alarm {
 	interface Time {
 		void ring();
 	}
+	/*
+	abstract class Time {
+		abstract void ring();
+	}
+	
+	class Time {
+		void ring() { }
+	}
+	
+	*/
+	
 	
 	void setAlarm(int hours) {
 		Time time = new Time() {
