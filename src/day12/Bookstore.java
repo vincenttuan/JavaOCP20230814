@@ -5,6 +5,7 @@ public class Bookstore {
 	// 折扣方法
 	void applyDiscount(String bookType) {
 		String discountBookType = "電腦";
+		//discountBookType = "小說";
 		// 方法內部類別-折扣類別
 		class Discount {
 			double getDiscountPercentage() {
