@@ -53,10 +53,16 @@ public class AnonymousAndLambda {
 		};
 		
 		// Lambda 簡化寫法 3
+		Calc calc4 = (x, y) -> {return x > y ? x : y;};
 		// 若實作只有一行可以省略 return
-		Calc calc4 = (x, y) -> x > y ? x : y;
+		Calc calc5 = (x, y) -> x > y ? x : y;
+		Calc calc6 = (x, y) -> Math.max(x, y);
 		
-		
+		// Lambda 簡化寫法 4
+		// 若實作只有一行可以省略 return
+		// 必要時可以利用 :: 方法參考
+		// Calc calc6 = (x, y) -> Math.max(x, y); 改成下面
+		Calc calc7 = Math::max;
 	}
 
 }
