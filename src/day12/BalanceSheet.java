@@ -49,12 +49,17 @@ public class BalanceSheet {
 	
 	// 印出資產負債表
 	public void display() {
-		System.out.printf("總資產: $%.0f\n", assets.getTotalAssets());
-		System.out.printf("總負債與股東權益: $%.0f\n", liabilitiesAndEquity.getTotalLiabilitiesAndEquity());
+		System.out.println("資產負債表");
+		System.out.println("--------------------------------------");
+		System.out.printf("總資產: $%,.0f\n", assets.getTotalAssets());
+		System.out.printf("總負債與股東權益: $%,.0f\n", liabilitiesAndEquity.getTotalLiabilitiesAndEquity());
 	}
 	
 	// 測試
-	
+	public static void main(String[] args) {
+		BalanceSheet balanceSheet = new BalanceSheet(10000, 50000, 40000, 10000, 15000);
+		balanceSheet.display();
+	}
 	
 }
 
