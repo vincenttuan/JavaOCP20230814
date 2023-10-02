@@ -7,8 +7,13 @@ public class ZooMain {
 		zoo1.introduceAnimal("大象");
 		
 		Zoo.Animal animal = new Zoo().new Animal("老虎");
-		//Zoo.Animal animal = zoo1.new Animal("老虎");
 		animal.eat();
+		
+		Zoo.Animal animal2 = zoo1.new Animal("猴子");
+		Zoo.Animal animal3 = zoo1.new Animal("企鵝");
+		animal2.eat();
+		animal3.eat();
+		
 
 	}
 
