@@ -16,6 +16,7 @@ public class Car {
 	}
 	
 	private Engine engine = new Engine();
+	private AudioSystem audioSystem = new AudioSystem();
 	
 	public void startCar() {
 		engine.start();
@@ -29,6 +30,20 @@ public class Car {
 		check.doCheck();
 	}
 	
+	public void playCarMusic() {
+		audioSystem.playMusic();
+	}
 	
 	// 匿名內部類別: 表示汽車內的空調 
 }
+
+
+
+
+
+
+
+
+
+
+
