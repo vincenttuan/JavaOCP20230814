@@ -49,6 +49,13 @@ public class Car {
 		ac.setTemperature();
 	}
 	
+	// 測試
+	public static void main(String[] args) {
+		Car car = new Car();
+		car.startCar();
+		car.playCarMusic();
+		car.activateAirConditioner(23);
+	}
 	 
 }
 
