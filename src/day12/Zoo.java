@@ -21,4 +21,8 @@ public class Zoo {
 		animal.eat();
 	}
 	
+	Animal getAnimal(String animalName) {
+		return new Animal(animalName);
+	}
+	
 }
