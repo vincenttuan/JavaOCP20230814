@@ -47,12 +47,22 @@ public class BalanceSheet {
 		this.liabilitiesAndEquity = new LiabilitiesAndEquity(currentLialailablties, nonCurrentLialailablties, equity);
 	}
 	
+	// 判斷資產是否高過負債
+	private boolean isAssestThanLiabilities() {
+		return assets.getTotalAssets() > liabilitiesAndEquity.getTotalLiabilitiesAndEquity();
+	}
+	
 	// 印出資產負債表
 	public void display() {
 		System.out.println("資產負債表");
 		System.out.println("--------------------------------------");
 		System.out.printf("總資產: $%,.0f\n", assets.getTotalAssets());
 		System.out.printf("總負債與股東權益: $%,.0f\n", liabilitiesAndEquity.getTotalLiabilitiesAndEquity());
+		if(isAssestThanLiabilities()) {
+			System.out.println("資產高過負債");
+		} else {
+			System.out.println("負債高過資產或相等");
+		}
 	}
 	
 	// 測試
