@@ -16,4 +16,9 @@ public class Zoo {
 		}
 	}
 	
+	void introduceAnimal(String animalName) {
+		Animal animal = new Animal(animalName);
+		animal.eat();
+	}
+	
 }
