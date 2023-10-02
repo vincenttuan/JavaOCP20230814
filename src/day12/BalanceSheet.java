@@ -36,4 +36,40 @@ public class BalanceSheet {
 		
 	}
 	
+	private Assets assets; // 資產
+	private LiabilitiesAndEquity liabilitiesAndEquity; // 負債與股東權益
+	
+	public BalanceSheet(double currentAssets, double nonCurrentAssets,
+			double currentLialailablties, double nonCurrentLialailablties, double equity) {
+		// 建立資產資料
+		this.assets = new Assets(currentAssets, nonCurrentAssets);
+		// 建立負債與股東權益資料
+		this.liabilitiesAndEquity = new LiabilitiesAndEquity(currentLialailablties, nonCurrentLialailablties, equity);
+	}
+	
+	// 印出資產負債表
+	public void display() {
+		System.out.printf("總資產: $%.0f\n", assets.getTotalAssets());
+		System.out.printf("總負債與股東權益: $%.0f\n", liabilitiesAndEquity.getTotalLiabilitiesAndEquity());
+	}
+	
+	// 測試
+	
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
