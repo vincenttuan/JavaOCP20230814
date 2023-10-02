@@ -34,7 +34,22 @@ public class Car {
 		audioSystem.playMusic();
 	}
 	
-	// 匿名內部類別: 表示汽車內的空調 
+	interface AirConditioner {
+		void setTemperature();
+	}
+	
+	public void activateAirConditioner(int temperature) {
+		// 匿名內部類別: 表示汽車內的空調
+		AirConditioner ac = new AirConditioner() {
+			@Override
+			public void setTemperature() {
+				System.out.printf("設定溫度為 %d 度\n", temperature);
+			}
+		};
+		ac.setTemperature();
+	}
+	
+	 
 }
 
 
