@@ -3,6 +3,7 @@ package day13;
 import java.util.function.BiFunction;
 import java.util.function.BinaryOperator;
 import java.util.function.Consumer;
+import java.util.function.DoubleBinaryOperator;
 import java.util.function.Function;
 
 /**
@@ -39,6 +40,10 @@ public class FunctionDemo {
 		// Operator -> 操作這個函數
 		BinaryOperator<Double> calcBmi2 = (h, w) -> w / Math.pow(h/100, 2);
 		System.out.println(calcBmi2.apply(170.0, 60.0));
+		
+		// 參數與回傳值一定是 double 時使用
+		DoubleBinaryOperator calcBmi3 = (h, w) -> w / Math.pow(h/100, 2);
+		System.out.println(calcBmi3.applyAsDouble(170.0, 60.0));
 	}
 
 }
