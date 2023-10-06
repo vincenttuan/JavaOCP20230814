@@ -35,6 +35,8 @@ public class FunctionDemo {
 		BiFunction<Double, Double, Double> calcBmi = (h, w) -> w / Math.pow(h/100, 2);
 		System.out.println(calcBmi.apply(170.0, 60.0));
 		
+		// Binary -> Bi 參數是二個
+		// Operator -> 操作這個函數
 		BinaryOperator<Double> calcBmi2 = (h, w) -> w / Math.pow(h/100, 2);
 		System.out.println(calcBmi2.apply(170.0, 60.0));
 	}
