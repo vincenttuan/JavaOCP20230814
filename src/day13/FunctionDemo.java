@@ -1,5 +1,7 @@
 package day13;
 
+import java.util.function.BiFunction;
+import java.util.function.BinaryOperator;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
@@ -28,6 +30,13 @@ public class FunctionDemo {
 		Function<String, String> cook = ingredient -> "焦糖風烤" + ingredient;
 		String food = cook.apply("玉米");
 		System.out.println(food);
+		
+		// BMI
+		BiFunction<Double, Double, Double> calcBmi = (h, w) -> w / Math.pow(h/100, 2);
+		System.out.println(calcBmi.apply(170.0, 60.0));
+		
+		BinaryOperator<Double> calcBmi2 = (h, w) -> w / Math.pow(h/100, 2);
+		System.out.println(calcBmi2.apply(170.0, 60.0));
 	}
 
 }
