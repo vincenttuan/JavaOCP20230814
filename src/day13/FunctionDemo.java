@@ -23,6 +23,11 @@ public class FunctionDemo {
 		// 寫一個可以印出美金到小數點 1 位的 Consumer
 		Consumer<Double> printUSD = money -> System.out.printf("%.1f\n", money);
 		printUSD.accept(usd);
+		
+		// 你給廚師一個食材, 廚師(Function)會根據食材做一到料理給你
+		Function<String, String> cook = ingredient -> "焦糖風烤" + ingredient;
+		String food = cook.apply("玉米");
+		System.out.println(food);
 	}
 
 }
