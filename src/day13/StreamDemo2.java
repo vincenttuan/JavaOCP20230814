@@ -23,7 +23,7 @@ public class StreamDemo2 {
 				  // 將 1.1 轉 BigDecimal y
 				  BigDecimal x = new BigDecimal(score+"");
 				  BigDecimal y = new BigDecimal("1.1");
-				  return x.multiply(y); // x * y
+				  return x.multiply(y).doubleValue(); // x * y
 			  })
 			  .forEach(score -> System.out.println(score));
 	}
