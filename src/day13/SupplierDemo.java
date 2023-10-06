@@ -1,5 +1,6 @@
 package day13;
 
+import java.util.Arrays;
 import java.util.function.Supplier;
 
 /*
@@ -22,5 +23,18 @@ public class SupplierDemo {
 		String song = musicBox.get();
 		System.out.println(song);
 		
+		// 得到一個名字列表 names
+		Supplier<String[]> namesGenerator = () -> new String[] {
+				"john", "mary", "bob", "vincent", "anita", "jo"
+		};
+		String[] names = namesGenerator.get();
+		System.out.println(Arrays.toString(names));
+		
+		// 得到一個分數集合 scores
+		Supplier<Integer[]> scoresGenerator = () -> new Integer[] {
+				80, 35, 95, 100, 40, 75, 65 
+		};
+		Integer[] scores = scoresGenerator.get();
+		System.out.println(Arrays.toString(scores));
 	}
 }
