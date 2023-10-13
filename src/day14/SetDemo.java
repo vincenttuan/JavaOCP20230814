@@ -37,6 +37,9 @@ public class SetDemo {
 		
 		System.out.println(set1);
 		
+		// Java 8 之後每一種容器都有內建 stream 可以進行容器元素的分析 
+		set1.stream()
+			.forEach(System.out::println);
 	}
 
 }
