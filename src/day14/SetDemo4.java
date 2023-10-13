@@ -59,11 +59,10 @@ public class SetDemo4 {
 		// 總分與平均
 		IntSummaryStatistics stat = scores.stream()
 					.mapToInt(Integer::intValue) // Integer 轉 int
-					.filter(score -> score >= 60)
 					.summaryStatistics();
 		
 		System.out.println(stat);
-		System.out.printf("及格的有 %d 人 總分 %d 平均 %.1f 最高 %d 最低 %d\n",
+		System.out.printf("有 %d 人 總分 %d 平均 %.1f 最高 %d 最低 %d\n",
 		stat.getCount(), stat.getSum(), stat.getAverage(), stat.getMax(), stat.getMin());
 
 		
