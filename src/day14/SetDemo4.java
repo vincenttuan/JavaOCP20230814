@@ -42,9 +42,9 @@ public class SetDemo4 {
 						  .forEach(scores::add);
 		
 		scores.forEach(score -> {
-			if(score < 60) counts[0]++;
-			else if (score > 85) counts[2]++;
-			else counts[1]++;
+			if(score < 60) counts[0]++; // 將 不及格 人數 +1
+			else if (score > 85) counts[2]++; // 將 優良 人數 +1
+			else counts[1]++; // 將 及格 人數 +1
 		});
 		
 		System.out.println(scores);
