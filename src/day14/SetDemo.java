@@ -15,6 +15,7 @@ public class SetDemo {
 		set1.add("英");
 		set1.add("?");
 		set1.add("數");
+		
 		System.out.println(set1);
 		System.out.println(set1.isEmpty());
 		System.out.println(set1.size());
