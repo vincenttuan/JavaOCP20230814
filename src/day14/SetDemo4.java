@@ -1,6 +1,8 @@
 package day14;
 
 import java.security.SecureRandom;
+import java.util.Arrays;
+import java.util.IntSummaryStatistics;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -53,6 +55,17 @@ public class SetDemo4 {
 		System.out.println(scores);
 		System.out.printf("不及格:%d人, 及格:%d人, 優良:%d人\n", 
 				counts[0], counts[1], counts[2]);
+		
+		// 總分與平均
+		IntSummaryStatistics stat = scores.stream()
+					.mapToInt(Integer::intValue) // Integer 轉 int
+					.filter(score -> score >= 60)
+					.summaryStatistics();
+		
+		System.out.println(stat);
+		System.out.printf("及格的有 %d 人 總分 %d 平均 %.1f 最高 %d 最低 %d\n",
+		stat.getCount(), stat.getSum(), stat.getAverage(), stat.getMax(), stat.getMin());
+
 		
 	}
 }
