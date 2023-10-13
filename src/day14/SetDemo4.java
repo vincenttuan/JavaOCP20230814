@@ -28,5 +28,28 @@ public class SetDemo4 {
 
 		System.out.println(numbers2);
 		
+		// 3. 利用 Stream API 隨機取 0..100(含) 10個不重複的分數
+		// 分析邏輯: 0~60:不及格, 60~85:及格, 86~100:優良
+		// 提示:    不及格, 及格, 優良 的人數放在一個 int[] 中
+		// 印出範例: [50, 90, 95, 79, 65, 62, 81, 40, 30, 78]
+		//        不及格:3人, 及格:5人, 優良:2人
+		Set<Integer> scores = new TreeSet<>();
+		// 請完成
+		int[] counts = {0, 0, 0}; // 不及格, 及格, 優良
+		new SecureRandom().ints(0, 101)
+						  .distinct()
+						  .limit(10)
+						  .forEach(scores::add);
+		
+		scores.forEach(score -> {
+			if(score < 60) counts[0]++;
+			else if (score > 85) counts[2]++;
+			else counts[1]++;
+		});
+		
+		System.out.println(scores);
+		System.out.printf("不及格:%d人, 及格:%d人, 優良:%d人\n", 
+				counts[0], counts[1], counts[2]);
+		
 	}
 }
