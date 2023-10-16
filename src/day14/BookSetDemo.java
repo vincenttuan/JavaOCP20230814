@@ -11,6 +11,7 @@ public class BookSetDemo {
 		Book b3 = new Book("C#", 200);
 		Book b4 = new Book("Web", 500);
 		Book b5 = new Book("C/C++", 100);
+		Book b6 = new Book("Java", 400); // 與 b1 內容相同
 		
 		Set<Book> books = new LinkedHashSet<>();
 		books.add(b1);
@@ -18,6 +19,7 @@ public class BookSetDemo {
 		books.add(b3);
 		books.add(b4);
 		books.add(b5);
+		books.add(b6);
 		
 		System.out.println(books.size());
 		books.forEach(System.out::println);
