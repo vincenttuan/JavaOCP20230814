@@ -1,5 +1,9 @@
 package day15;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 /*
 可變集合/不可變集合/不可修改集合
 
@@ -17,8 +21,14 @@ package day15;
 public class ListDemo3 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		// 不可修改集合
+		//List<Integer> list = List.of(100, 90, 80); // since Java 9
+		List<Integer> list = Collections.unmodifiableList(Arrays.asList(100, 90, 80));
+		//list.add(70); // 錯誤
+		//list.set(0, 99); // 錯誤
+		//list.remove(0); // 錯誤
+		System.out.println(list);
+		
 	}
 
 }
