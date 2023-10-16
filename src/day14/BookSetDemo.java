@@ -23,6 +23,14 @@ public class BookSetDemo {
 		
 		System.out.println(books.size());
 		books.forEach(System.out::println);
+		
+		Book targetBook = new Book("C#", 200);
+		// 請問 books 集合中有沒有 targetBook 這一本書 ?
+		System.out.println(books.contains(targetBook));
+		System.out.println(b3.hashCode());
+		System.out.println(targetBook.hashCode());
+		
+		
 	}
 	
 }
