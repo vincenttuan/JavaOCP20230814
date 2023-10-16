@@ -35,6 +35,8 @@ public class BookSetDemo2 {
 		System.out.println();
 		books.descendingSet().forEach(System.out::println);
 		
+		// books 總價與平均
+		
 	}
 	
 }
