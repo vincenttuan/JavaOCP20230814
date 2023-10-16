@@ -30,11 +30,13 @@ public class SalesDemo {
 		 		 });
 		
 		
-		int sum = IntStream.range(1, lines.size())
-				 			.mapToObj(i -> lines.get(i).split(",")) //  元素轉為 String[]
-				 			.mapToInt(array -> Integer.parseInt(array[2]) * Integer.parseInt(array[3]))
+		int sum = IntStream.range(1, lines.size()) // 元素: String
+				 			.mapToObj(i -> lines.get(i).split(",")) //  元素: 轉為 String[]
+				 			.mapToInt(array -> Integer.parseInt(array[2]) * Integer.parseInt(array[3])) // 元素: int
 				 			.sum();
-		System.out.println(sum);
+		System.out.println("整體銷售金額:" + sum);
+		
+		// 請算出紅茶的總銷售金額 ?
 		
 	}
 
