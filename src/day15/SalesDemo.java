@@ -29,6 +29,13 @@ public class SalesDemo {
 		 			 System.out.println(array[1]); // product
 		 		 });
 		
+		
+		int sum = IntStream.range(1, lines.size())
+				 			.mapToObj(i -> lines.get(i).split(",")) //  元素轉為 String[]
+				 			.mapToInt(array -> Integer.parseInt(array[2]) * Integer.parseInt(array[3]))
+				 			.sum();
+		System.out.println(sum);
+		
 	}
 
 }
