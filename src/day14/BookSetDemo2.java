@@ -1,5 +1,6 @@
 package day14;
 
+import java.util.IntSummaryStatistics;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -36,7 +37,13 @@ public class BookSetDemo2 {
 		books.descendingSet().forEach(System.out::println);
 		
 		// books 總價與平均
+		IntSummaryStatistics stat = books.stream()
+				.mapToInt(book -> book.getPrice())
+				.summaryStatistics();
+		System.out.printf("總價: %,d\n", stat.getSum());
+		System.out.printf("平均: %,.0f\n", stat.getAverage());
 		
+				
 	}
 	
 }
