@@ -58,7 +58,9 @@ public class Book implements Comparable<Book> {
 	@Override
 	public int compareTo(Book otherBook) {
 		// 利用 price 來比較大小順序
-		return this.price - otherBook.price;
+		//return this.price - otherBook.price;
+		// 利用 name 字串來比較大小順序
+		return this.name.compareTo(otherBook.name);
 	}
 	
 	
