@@ -3,10 +3,12 @@ package day14;
 import java.util.Objects;
 
 /*
- * 若要將 Book 物件放到 Set 集合中
+ * 1.若要將 Book 物件放到 Set 集合中
  * 必須實作 equals() 與 hashCode() 方法
+ * 2.若要將 Book 物件放到 TreeSet 集合中
+ * 就必須要 implement Comparable
  * */
-public class Book {
+public class Book implements Comparable<Book> {
 	private String name; // 書名
 	private Integer price; // 價格
 	
@@ -51,6 +53,12 @@ public class Book {
 	@Override
 	public String toString() {
 		return "Book [name=" + name + ", price=" + price + "]";
+	}
+
+	@Override
+	public int compareTo(Book otherBook) {
+		// 利用 price 來比較大小順序
+		return this.price - otherBook.price;
 	}
 	
 	
