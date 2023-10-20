@@ -13,9 +13,9 @@ public class MapDemo2 {
 		List<List<Integer>> list = new ArrayList<>();
 		list.add(List.of(2330, 10));
 		list.add(List.of(2330, 20));
-		list.add(List.of(0050, 30));
+		list.add(List.of(1401, 30));
 		list.add(List.of(2317, 40));
-		list.add(List.of(0050, 50));
+		list.add(List.of(1401, 50));
 		list.add(List.of(2330, 60));
 		System.out.println(list);
 		
@@ -26,8 +26,11 @@ public class MapDemo2 {
 			portfolio.computeIfAbsent(stock.get(0), key -> stock.get(1));
 		});
 		
-		
 		System.out.println(portfolio);
+		
+		// getOrDefault 若 key 值存在就得到 value, 反之得到 0
+		System.out.println(portfolio.getOrDefault(2330, 0));
+		System.out.println(portfolio.getOrDefault(1234, 0));
 		
 		
 		
