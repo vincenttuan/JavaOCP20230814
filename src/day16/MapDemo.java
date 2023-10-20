@@ -10,7 +10,8 @@ public class MapDemo {
 		Map<String, Integer> portfolio = new LinkedHashMap<>();
 		portfolio.put("2330", 30);
 		portfolio.put("2303", 30);
-		portfolio.put("2317", 50);
+		portfolio.putIfAbsent("2317", 50);
+		portfolio.putIfAbsent("2317", 49);
 		portfolio.put("0050", null);
 		System.out.println(portfolio);
 		System.out.println(portfolio.get("2330"));
@@ -29,6 +30,12 @@ public class MapDemo {
 		portfolio.computeIfAbsent("1101", key -> 1);
 		portfolio.computeIfAbsent("2330", key -> 1);
 		System.out.println(portfolio);
+		
+		// 若 key 有存在 value 就 +1 張
+		portfolio.computeIfPresent("2330", (key, value) -> value + 1);
+		System.out.println(portfolio);
+		
+		
 		
 	}
 	
