@@ -2,6 +2,7 @@ package day16;
 
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class MapDemo3 {
@@ -13,7 +14,8 @@ public class MapDemo3 {
 		// 請計算每種水果的個數
 		// apple=3, banana=2, orange=1, papaya=1
 		Map<String, Long> result = fruits.stream().collect(
-					Collectors.groupingBy(name->name, Collectors.counting())
+					Collectors.groupingBy(name->name+".TW", Collectors.counting())
+					//Collectors.groupingBy(Function.identity(), Collectors.counting())
 				);
 		System.out.println(result);
 	}
