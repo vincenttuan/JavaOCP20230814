@@ -56,7 +56,7 @@ public class ListAndSet {
 					return Integer.parseInt(priceStr) * Integer.parseInt(qtyStr);
 				})
 				.sum();
-		System.out.println("總銷售金額: " + totalSales);
+		System.out.println("總銷售金額: " + totalSales); 
 		
 	}
 	
