@@ -4,10 +4,13 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
+import static java.util.Arrays.stream;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
+import static java.util.stream.Collectors.toCollection;
+import static java.util.stream.Collectors.toList;
 
 /*
  * [ <-- List
@@ -39,9 +42,9 @@ public class ListAndSet {
 		// 利用 Java Stream Api 改寫成更加簡潔且易於閱讀的程式碼
 		List<Set<String>> salesList2 = lines.stream() // 轉換 stream
 				.skip(1) // 跳過標頭資料
-				.map(line -> Arrays.stream(line.split(",")) // 將每一行以 "," 切分, 並轉 stream 以利後續處理
-								   .collect(Collectors.toCollection(LinkedHashSet::new))) // 收集結果並放在 LinkedHashSet 集合中 
-				.collect(Collectors.toList());
+				.map(line -> stream(line.split(",")) // 將每一行以 "," 切分, 並轉 stream 以利後續處理
+							 .collect(toCollection(LinkedHashSet::new))) // 收集結果並放在 LinkedHashSet 集合中 
+				.collect(toList());
 		System.out.println(salesList2);
 		
 	}
