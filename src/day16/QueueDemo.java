@@ -13,10 +13,10 @@ public class QueueDemo {
 		Queue<String> printQueue = new LinkedList<>();
 		
 		// 假設有三項列印任務
-		printQueue.add("文件1.pdf");
-		printQueue.add("文件2.doc");
-		printQueue.add("圖片1.png");
-		
+		printQueue.offer("文件1.pdf"); // 或用 add() 都可以
+		printQueue.offer("文件2.doc");
+		printQueue.offer("圖片1.png");
+		System.out.println("列印任務: " + printQueue);
 		// 處理佇列的列印任務, 直到佇列為空
 		while (!printQueue.isEmpty()) {
 			// 提取列印任務
@@ -24,7 +24,7 @@ public class QueueDemo {
 			System.out.println("正在列印: " + printJob);
 			Thread.sleep(2000); // 模擬列印時間 200ms(2秒)
 		}
-		
+		System.out.println("列印任務: " + printQueue);
 		System.out.println("所有列印任務完成");
 	}
 	
