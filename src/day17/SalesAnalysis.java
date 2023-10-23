@@ -3,6 +3,7 @@ package day17;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Collections;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -11,6 +12,7 @@ import com.google.gson.Gson;
 
 import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.summingInt;
+import static java.util.stream.Collectors.toMap;
 
 // 分析 sales_data.json
 // 1. 建立 SaleRecord 物件
@@ -39,6 +41,11 @@ public class SalesAnalysis {
 		Map.Entry<String, Integer> minEntry = Collections.min(productQtyMap.entrySet(), Map.Entry.comparingByValue());
 		System.out.println("哪一種商品銷售數量最少: " + minEntry.getKey() + ", 數量: " + minEntry.getValue());
 		
+		// 按照銷售數量來排序(降序排序 大->小)
+		Map<String, Integer> sortedByQty = productQtyMap.entrySet().stream()
+														.sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
+														.collect(toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+		System.out.println(sortedByQty);
 	}
 
 }
