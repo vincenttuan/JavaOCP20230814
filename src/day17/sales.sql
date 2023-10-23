@@ -1,5 +1,10 @@
 use demo;
 
+drop table if exists sales;
+drop table if exists products;
+drop table if exists branches;
+drop table if exists cities;
+
 -- 建立 products
 create table if not exists products(
 	id int auto_increment primary key,
@@ -31,3 +36,13 @@ create table if not exists sales(
     constraint fk_sale_product foreign key (product_id) references products(id),
     constraint fk_sale_branch foreign key (branch_id) references branches(id)
 );
+
+-- 新增 cities
+insert into cities(name) values('台北');
+insert into cities(name) values('桃園');
+insert into cities(name) values('新竹');
+insert into cities(name) values('台中');
+insert into cities(name) values('台南');
+insert into cities(name) values('高雄');
+
+
