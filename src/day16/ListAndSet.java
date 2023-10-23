@@ -44,7 +44,7 @@ public class ListAndSet {
 		Set<List<String>> salesList2 = lines.stream() // 轉換 stream
 				.skip(1) // 跳過標頭資料
 				.map(line -> stream(line.split(",")) // 將每一行以 "," 切分, 並轉 stream 以利後續處理
-							 .collect(toCollection(ArrayList::new))) // 收集結果並放在 LinkedHashSet 集合中 
+							 .collect(toCollection(ArrayList::new))) // 收集結果並放在 HashSet 集合中 
 				.collect(toSet());
 		System.out.println(salesList2);
 		
