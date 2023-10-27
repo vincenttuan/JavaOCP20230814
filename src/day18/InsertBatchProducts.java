@@ -26,8 +26,6 @@ public class InsertBatchProducts {
 		int[] rowcounts = pstmt.executeBatch();
 		System.out.println("異動筆數: " + Arrays.toString(rowcounts));
 		
-		int rowcount = pstmt.executeUpdate();
-		System.out.println("異動筆數: " + rowcount);
 		pstmt.close();
 		conn.close();
 	}
