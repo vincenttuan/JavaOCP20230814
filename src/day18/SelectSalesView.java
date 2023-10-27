@@ -4,6 +4,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 public class SelectSalesView {
 
@@ -27,6 +31,7 @@ public class SelectSalesView {
 		// 取得結果
 		ResultSet rs = stmt.executeQuery(sql);
 		// 將結果依序印出
+		List<Map<String, Object>> sales = new ArrayList<>();
 		while (rs.next()) {
 			String no = rs.getString("no");
 			String date = rs.getString("date");
@@ -38,6 +43,22 @@ public class SelectSalesView {
 			Integer productQty = rs.getInt("product_qty");
 			String branchName = rs.getString("branch_name");
 			String cityName = rs.getString("city_name");
+			
+			// 將資料放到 Map 中
+			Map<String, Object> map = new LinkedHashMap<>();
+			map.put("no", no);
+			map.put("date", date);
+			map.put("productId", productId);
+			map.put("branchId", branchId);
+			map.put("cityId", cityId);
+			map.put("productName", productName);
+			map.put("productPrice", productPrice);
+			map.put("productQty", productQty);
+			map.put("branchName", branchName);
+			map.put("cityName", cityName);
+			
+			// 注入到 sales 集合中
+			sales.add(map);
 			
 			System.out.printf("%4s", no);
 			System.out.printf("%12s", date);
@@ -55,6 +76,9 @@ public class SelectSalesView {
 		}
 		
 		conn.close();
+		
+		System.out.println(sales);
+		System.out.println(sales.size());
 	}
 
 }
