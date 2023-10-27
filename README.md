@@ -28,8 +28,8 @@ SELECT
     c.name as city_name
 FROM 
     demo.sales s
-JOIN demo.products p ON s.product_id = p.id
-JOIN demo.branches b ON s.branch_id = b.id
-JOIN demo.cities c ON b.city_id = c.id    
+LEFT JOIN demo.products p ON s.product_id = p.id
+LEFT JOIN demo.branches b ON s.branch_id = b.id
+LEFT JOIN demo.cities c ON b.city_id = c.id 
 
 </pre>
