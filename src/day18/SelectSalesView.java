@@ -13,7 +13,7 @@ public class SelectSalesView {
 				+ "	no, date, product_id, branch_id, city_id, "
 				+ "    product_name, price as product_price, qty as product_qty, "
 				+ "    branch_name, name as city_name "
-				+ " FROM demo.sales_view;";
+				+ " FROM demo.sales_view ORDER BY no";
 		
 		// 透過 Class.forName(""); 建立 MySQL 物件
 		// JDBC 3.0 需要寫, JDBC 4.0 則可不用
