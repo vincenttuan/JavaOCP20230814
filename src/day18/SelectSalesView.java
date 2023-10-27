@@ -9,6 +9,8 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.google.gson.Gson;
+
 public class SelectSalesView {
 
 	public static void main(String[] args) throws Exception {
@@ -79,6 +81,10 @@ public class SelectSalesView {
 		
 		System.out.println(sales);
 		System.out.println(sales.size());
+		
+		// 轉 json
+		String json = new Gson().toJson(sales);
+		System.out.println(json);
 	}
 
 }
