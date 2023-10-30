@@ -20,20 +20,11 @@ public class ExceptionDemo1 {
 		Double h = null;
 		Double w = null;
 		Integer age = null;
-		// try-catch 錯誤處理
-		try {
-			System.out.print("請輸入性別(男:1, 女:2): ");
-			sex = sc.nextInt();
-			System.out.print("請輸入身高(cm): ");
-			h = sc.nextDouble();
-			System.out.print("請輸入體重(kg): ");
-			w = sc.nextDouble();
-			System.out.print("請輸入年齡(整數): ");
-			age = sc.nextInt();
-		} catch (InputMismatchException e) {
-			System.out.println("參數輸入不正確");
-			return; // 方法停止 
-		}
+		
+		sex = input("性別", "請輸入性別(男:1, 女:2): ", Integer.class, sc);
+		h = input("身高", "請輸入身高(cm): ", Double.class, sc);
+		w = input("體重", "請輸入體重(kg): ", Double.class, sc);
+		age = input("年齡", "請輸入年齡(整數): ", Integer.class, sc);
 		
 		sc.close(); // 關閉 scanner
 		
@@ -54,6 +45,7 @@ public class ExceptionDemo1 {
 	}
 	
 	private static <T extends Number> T input(String name, String message, Class clazz, Scanner sc) {
+		// try-catch 錯誤處理
 		try {
 			System.out.print(message);
 			if(clazz == Integer.class) {
