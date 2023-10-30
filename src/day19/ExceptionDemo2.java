@@ -1,5 +1,6 @@
 package day19;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ExceptionDemo2 {
@@ -15,14 +16,18 @@ public class ExceptionDemo2 {
 		Integer avg = null; // 平均每人得幾顆
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.print("請輸入水果數量: ");
-		x = sc.nextInt();
-		System.out.print("請輸入人數: ");
-		y = sc.nextInt();
-		
-		avg = x / y;
-		
-		System.out.printf("平均每人得: %d%n", avg);
+		try {
+			System.out.print("請輸入水果數量: ");
+			x = sc.nextInt();
+			System.out.print("請輸入人數: ");
+			y = sc.nextInt();
+			avg = x / y;
+			System.out.printf("平均每人得: %d%n", avg);
+		} catch (InputMismatchException e) {
+			System.out.println("參數輸入錯誤 !");
+		} catch (ArithmeticException e) {
+			System.out.println("分母不可 = 0");
+		}
 		
 	}
 }
