@@ -28,7 +28,7 @@ public class ExceptionDemo1 {
 		double bmr = 0;
 		switch (sex) {
 			case 1:
-				bmr = 66 + (13.7*w + 5 * h - 6.8 * age); 
+				bmr = 66 + (13.7 * w + 5 * h - 6.8 * age); 
 				break;
 			case 2:
 				bmr = 655 + (9.6 * w + 1.8 * h - 4.7 * age);
