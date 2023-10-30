@@ -55,21 +55,42 @@ public class ExceptionDemo1 {
 		
 	}
 	
+	/**
+	 * 通用輸入方法，根據給定的類型從Scanner讀取數值。
+	 * 
+	 * @param <T>     數值的泛型類型
+	 * @param name    用於錯誤提示的參數名稱
+	 * @param message 提示用戶輸入的消息
+	 * @param clazz   需要返回的數字類型的Class對象
+	 * @param sc      Scanner對象用於讀取輸入
+	 * @return 返回輸入的數字，或null如果有輸入不匹配的錯誤
+	 */
 	private static <T extends Number> T input(String name, String message, Class clazz, Scanner sc) {
-		// try-catch 錯誤處理
-		try {
-			System.out.print(message);
-			if(clazz == Integer.class) {
-				return (T) clazz.cast(sc.nextInt());
-			} else if (clazz == Double.class) {
-				return (T) clazz.cast(sc.nextDouble());
-			}
-			
-		} catch (InputMismatchException e) {
-			System.out.println(name + "輸入錯誤");
-			sc.nextLine(); // 清空 buffer
-		}
-		return null;
+	    // 顯示提示消息給用戶
+	    System.out.print(message);
+	    
+	    try {
+	        // 如果需要的是整數類型
+	        if(clazz == Integer.class) {
+	            // 讀取整數，然後將其轉型為T類型並返回
+	            return (T) clazz.cast(sc.nextInt());
+	        } 
+	        // 如果需要的是雙精度浮點數類型
+	        else if (clazz == Double.class) {
+	            // 讀取雙精度浮點數，然後將其轉型為T類型並返回
+	            return (T) clazz.cast(sc.nextDouble());
+	        }
+	        // 注意：當前只支持Integer和Double，若需要其他類型則需要進一步擴展
+	    } 
+	    // 捕獲輸入不匹配異常，例如用戶輸入了文本而不是數字
+	    catch (InputMismatchException e) {
+	        // 告訴用戶哪個參數出錯了
+	        System.out.println(name + "輸入錯誤");
+	        // 清空Scanner的buffer，這樣可以再次嘗試讀取
+	        sc.nextLine();
+	    }
+	    // 如果有任何異常，或者未知的類型，返回null
+	    return null;
 	}
 
 }
