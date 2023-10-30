@@ -21,10 +21,21 @@ public class ExceptionDemo1 {
 		Double w = null;
 		Integer age = null;
 		
-		sex = input("性別", "請輸入性別(男:1, 女:2): ", Integer.class, sc);
-		h = input("身高", "請輸入身高(cm): ", Double.class, sc);
-		w = input("體重", "請輸入體重(kg): ", Double.class, sc);
-		age = input("年齡", "請輸入年齡(整數): ", Integer.class, sc);
+		if ((sex = input("性別", "請輸入性別(男:1, 女:2): ", Integer.class, sc)) == null) {
+			return;
+		}
+		
+		if((h = input("身高", "請輸入身高(cm): ", Double.class, sc)) == null) {
+			return;
+		}
+		
+		if((w = input("體重", "請輸入體重(kg): ", Double.class, sc)) == null) {
+			return;
+		}
+		
+		if((age = input("年齡", "請輸入年齡(整數): ", Integer.class, sc)) == null) {
+			return;
+		}
 		
 		sc.close(); // 關閉 scanner
 		
