@@ -53,19 +53,20 @@ public class ExceptionDemo1 {
 		
 	}
 	
-	private static Number input(String name, String message, Class clazz, Scanner sc) {
+	private static <T extends Number> T input(String name, String message, Class clazz, Scanner sc) {
 		try {
 			System.out.print(message);
-			switch (clazz.getSimpleName()) {
-				case "Integer":
-					return sc.nextInt();
-				default:
-					return sc.nextDouble();
+			if(clazz == Integer.class) {
+				return (T) clazz.cast(sc.nextInt());
+			} else if (clazz == Double.class) {
+				return (T) clazz.cast(sc.nextDouble());
 			}
+			
 		} catch (InputMismatchException e) {
 			System.out.println(name + "輸入錯誤");
-			return null;
+			sc.nextLine(); // 清空 buffer
 		}
+		return null;
 	}
 
 }
