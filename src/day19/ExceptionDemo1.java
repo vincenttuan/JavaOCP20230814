@@ -1,5 +1,6 @@
 package day19;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ExceptionDemo1 {
@@ -15,14 +16,26 @@ public class ExceptionDemo1 {
 	
 	public static void bmr() {
 		Scanner sc = new Scanner(System.in);
-		System.out.print("請輸入性別(男:1, 女:2): ");
-		int sex = sc.nextInt();
-		System.out.print("請輸入身高(cm): ");
-		double h = sc.nextDouble();
-		System.out.print("請輸入體重(kg): ");
-		double w = sc.nextDouble();
-		System.out.print("請輸入年齡(整數): ");
-		int age = sc.nextInt();
+		Integer sex = null;
+		Double h = null;
+		Double w = null;
+		Integer age = null;
+		// try-catch 錯誤處理
+		try {
+			System.out.print("請輸入性別(男:1, 女:2): ");
+			sex = sc.nextInt();
+			System.out.print("請輸入身高(cm): ");
+			h = sc.nextDouble();
+			System.out.print("請輸入體重(kg): ");
+			w = sc.nextDouble();
+			System.out.print("請輸入年齡(整數): ");
+			age = sc.nextInt();
+		} catch (InputMismatchException e) {
+			System.out.println("參數輸入不正確");
+			return; // 方法停止 
+		}
+		
+		sc.close(); // 關閉 scanner
 		
 		// 印出 bmr ?
 		double bmr = 0;
@@ -37,6 +50,7 @@ public class ExceptionDemo1 {
 				System.out.println("性別錯誤");
 		}
 		System.out.printf("BMR: %.1f\n", bmr);
+		
 	}
 
 }
