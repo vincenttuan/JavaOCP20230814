@@ -23,7 +23,18 @@ public class ExceptionDemo1 {
 		int age = sc.nextInt();
 		
 		// 印出 bmr ?
-		
+		double bmr = 0;
+		switch (sex) {
+			case 1:
+				bmr = 66 + (13.7*w + 5 * h - 6.8 * age); 
+				break;
+			case 2:
+				bmr = 655 + (9.6 * w + 1.8 * h - 4.7 * age);
+				break;
+			default:
+				System.out.println("性別錯誤");
+		}
+		System.out.printf("BMR: %.1f\n", bmr);
 	}
 
 }
