@@ -11,6 +11,8 @@ public class ExceptionDemo1 {
 	// 基礎代謝率(Basal Metabolic Rate, BMR)
 	// 公式： 男：66＋( 13.7*體重kg＋5*身高cm－6.8*年齡) 
 	//       女：655＋( 9.6*體重kg＋1.8*身高cm－4.7*年齡)
+	// 粗估正常範圍: 男 1400~1800, 女 1200~1500
+	
 	public static void bmr() {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("請輸入性別(男:1, 女:2): ");
