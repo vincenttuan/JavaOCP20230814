@@ -27,7 +27,10 @@ public class ExceptionDemo2 {
 			System.out.println("參數輸入錯誤 !");
 		} catch (ArithmeticException e) {
 			System.out.println("分母不可 = 0");
+		} finally {
+			// 放到 finally 表示此行一定會被執行
+			// 不論是否上面程式有其他未知的錯誤發生
+			sc.close(); 
 		}
-		
 	}
 }
