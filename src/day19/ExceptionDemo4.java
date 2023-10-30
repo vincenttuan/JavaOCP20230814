@@ -1,7 +1,18 @@
 package day19;
 
+import java.io.Closeable;
+import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
+class Happy implements Closeable {
+
+	@Override
+	public void close() {
+		System.out.println("下了囉");
+	}
+	
+}
 
 public class ExceptionDemo4 {
 
@@ -18,7 +29,8 @@ public class ExceptionDemo4 {
 		
 		// Java 7 try-with-resource 語法
 		// 可以自動執行 close()
-		try(Scanner sc = new Scanner(System.in)) {
+		try(Scanner sc = new Scanner(System.in);
+			Happy happy = new Happy()) {
 			System.out.print("請輸入水果數量: ");
 			x = sc.nextInt();
 			System.out.print("請輸入人數: ");
