@@ -52,5 +52,20 @@ public class ExceptionDemo1 {
 		System.out.printf("BMR: %.1f\n", bmr);
 		
 	}
+	
+	private static Number input(String name, String message, Class clazz, Scanner sc) {
+		try {
+			System.out.print(message);
+			switch (clazz.getSimpleName()) {
+				case "Integer":
+					return sc.nextInt();
+				default:
+					return sc.nextDouble();
+			}
+		} catch (InputMismatchException e) {
+			System.out.println(name + "輸入錯誤");
+			return null;
+		}
+	}
 
 }
