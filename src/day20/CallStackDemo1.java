@@ -1,6 +1,6 @@
 package day20;
 
-public class CallStackDemo2 {
+public class CallStackDemo1 {
 
 	public static void main(String[] args) {
 		System.out.println("begin");
