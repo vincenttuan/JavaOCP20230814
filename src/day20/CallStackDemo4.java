@@ -1,5 +1,12 @@
 package day20;
 
+//自訂錯誤類
+class InvalidYArgException extends Exception {
+	InvalidYArgException(String errorMessage) {
+		super(errorMessage);
+	}
+}
+
 public class CallStackDemo4 {
 
 	public static void main(String[] args) {
