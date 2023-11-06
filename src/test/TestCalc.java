@@ -6,8 +6,13 @@ import org.junit.Test;
 
 import day21.Calc;
 
+/*
+ * Runs: 測試個數
+ * Errors: 測試過程中發生意外
+ * Failures: 測試過程中發生不符合預期(assert失敗)的意外
+ * */
+
 public class TestCalc {
-	
 	@Test
 	// 測試腳本
 	// 利用 3A 法則來測試物件資源/服務
