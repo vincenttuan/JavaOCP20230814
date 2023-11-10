@@ -5,7 +5,9 @@ public class Person {
 	public void job() {
 		// 執行緒名稱
 		String tName = Thread.currentThread().getName();
-		System.out.printf("%s: 撰寫程式%n", tName);
+		for(int i=1;i<=10;i++) {
+			System.out.printf("%s: 撰寫程式-%d %n", tName, i);
+		}
 	}
 	
 }
