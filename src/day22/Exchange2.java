@@ -13,6 +13,7 @@ public class Exchange2 extends Thread {
 	@Override
 	public void run() {
 		int ex = (new Random().nextInt(10)) + 10;
+		System.out.println("ex = " + ex);
 		callback.accept(ex);
 	}
 	

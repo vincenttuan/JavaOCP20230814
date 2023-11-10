@@ -9,6 +9,8 @@ public class Exchange2Demo {
 		
 		Consumer<Integer> callback = (ex) -> System.out.println("x = " + (x * ex));
 		
+		Thread t1 = new Exchange2(callback);
+		t1.start();
 		
 	}
 
