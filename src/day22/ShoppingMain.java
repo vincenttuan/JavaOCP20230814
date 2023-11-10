@@ -3,7 +3,7 @@ package day22;
 public class ShoppingMain {
 
 	public static void main(String[] args) {
-		// 帶老婆去購物
+		// 老婆購物完後的要執行的任務
 		ShoppingCallback callback = message -> {
 			System.out.println("老婆說: " + message);
 			System.out.println("老公去付錢");
