@@ -11,6 +11,7 @@ public class ThreadDemo {
 		Thread t2 = new Thread(r2);
 		Thread t3 = new Thread(r3);
 		
+		// 印出的順序不一定會按照既定的順序
 		t1.start();
 		t2.start();
 		t3.start();
