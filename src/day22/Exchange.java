@@ -15,7 +15,14 @@ public class Exchange extends Thread {
 		int ex = (new Random().nextInt(10)) + 10;
 		System.out.println("目前匯率: " + ex);
 		// 將匯率設定給 callback
-		callback.result(ex);
+		// 模擬 3 秒鐘的延遲
+		try {
+			Thread.sleep(3000);
+			callback.result(ex);
+		} catch (Exception e) {
+			
+		}
+		
 	}
 	
 }

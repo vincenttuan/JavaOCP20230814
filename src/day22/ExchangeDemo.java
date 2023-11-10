@@ -12,6 +12,7 @@ public class ExchangeDemo {
 			// x = x * 匯率(ex)
 			System.out.println("x = " + (x * ex));
 		};
+		//callback.result(15);
 		
 		System.out.println("begin");
 		Thread t1 = new Exchange(callback);
