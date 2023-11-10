@@ -1,8 +1,13 @@
 package day22;
 
-public class Person {
+public class Person extends Thread {
 	
-	public void job() {
+	@Override
+	public void run() {
+		job();
+	}
+
+	private void job() {
 		// 執行緒名稱
 		String tName = Thread.currentThread().getName();
 		for(int i=1;i<=10;i++) {
