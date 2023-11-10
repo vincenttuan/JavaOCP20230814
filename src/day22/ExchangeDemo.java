@@ -13,8 +13,11 @@ public class ExchangeDemo {
 			System.out.println("x = " + (x * ex));
 		};
 		
+		System.out.println("begin");
 		Thread t1 = new Exchange(callback);
 		t1.start();
+		System.out.println("end");
+		
 				
 	}
 }
