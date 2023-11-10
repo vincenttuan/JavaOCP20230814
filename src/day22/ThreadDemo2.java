@@ -16,6 +16,7 @@ public class ThreadDemo2 {
 			Thread t = new Thread(runnables[i]);
 			t.start();
 		}
+		//System.out.println(Thread.activeCount());
 		
 		// Java 8
 		Arrays.stream(runnables).forEach(r -> new Thread(r).start());
