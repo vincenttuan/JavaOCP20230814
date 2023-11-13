@@ -14,7 +14,7 @@ public class BankDemo {
 		// 建立 3 條執行緒取執行提款工作
 		Thread t1 = new Thread(task1, "小明");
 		Thread t2 = new Thread(task2, "小華");
-		Thread t3 = new Thread(task2, "小英");
+		Thread t3 = new Thread(task3, "小英");
 		
 		t1.start();
 		t2.start();
