@@ -13,7 +13,7 @@ public class BankAccount {
 
 	// 提款
 	//public synchronized void withdraw(int amount) {
-	public synchronized void withdraw(int amount) {
+	public void withdraw(int amount) {
 		String tName = Thread.currentThread().getName();
 		
 		lock.lock();
