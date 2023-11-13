@@ -34,6 +34,7 @@ public class BankAccount {
 		String tName = Thread.currentThread().getName();
 		lock.lock(); // 鎖定 this 物件
 		try {
+			this.balance += amount;
 			System.out.printf("%s 存款 $%d (成功) 餘額 $%d%n", tName, amount, this.balance);
 		} finally {
 			lock.unlock(); // 釋放鎖 
