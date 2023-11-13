@@ -15,11 +15,11 @@ public class BankAccount {
 		int currentBalance = this.balance;
 		
 		if(currentBalance >= amount) {
-			System.out.printf("%s 提款 $%d 成功%n", tName, amount);
+			System.out.printf("%s 提款 $%d (成功) 餘額 $%d%n", tName, amount, this.balance);
 			// 餘額減去提款金額
 			this.balance -= amount;
 		} else {
-			System.out.printf("%s 提款 $%d 失敗%n", tName, amount);
+			System.out.printf("%s 提款 $%d (失敗) 餘額 $%d%n", tName, amount, this.balance);
 		}
 		
 	}
