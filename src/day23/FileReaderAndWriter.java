@@ -1,5 +1,8 @@
 package day23;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -15,6 +18,10 @@ public class FileReaderAndWriter {
 		public void run() {
 			try {
 				Thread.sleep(1000);
+				// 將 "Hello Java" 寫入到 data.txt 中
+				String content = "Hello Java";
+				Path path = Paths.get("src/day23/data.txt");
+				Files.write(path, content.getBytes());
 				System.out.println("資料寫入到檔案");
 			} catch (Exception e) {
 				
