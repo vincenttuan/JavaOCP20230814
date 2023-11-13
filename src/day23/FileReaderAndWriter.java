@@ -13,7 +13,12 @@ public class FileReaderAndWriter {
 	static class FileWriterTask implements Runnable {
 		@Override
 		public void run() {
-			System.out.println("資料寫入到檔案");
+			try {
+				Thread.sleep(5000);
+				System.out.println("資料寫入到檔案");
+			} catch (Exception e) {
+				
+			}
 		}
 	}
 	
@@ -30,6 +35,7 @@ public class FileReaderAndWriter {
 	
 	public static void main(String[] args) throws Exception {
 		ExecutorService service= Executors.newFixedThreadPool(2);
+		
 		// 寫入文件工作
 		Runnable writeTask = new FileWriterTask();
 		// 讀取文件工作
@@ -37,10 +43,17 @@ public class FileReaderAndWriter {
 		
 		// 執行任務工作
 		service.execute(writeTask);
+		//Future fut = service.submit(writeTask);
+		//System.out.println(fut.get()); // 得到 null
+		
 		Future<String> future = service.submit(readerTask);
 		System.out.println(future.get());
 		
-		service.shutdown();
+		//Thread.sleep(3000);
+		//service.shutdownNow(); // 強迫關閉
+		
+		service.shutdown(); // 平滑關閉
+		
 	}
 
 }
