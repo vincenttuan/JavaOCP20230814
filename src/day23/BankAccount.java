@@ -8,7 +8,7 @@ public class BankAccount {
 	}
 	
 	// 提款
-	public void withdraw(int amount) {
+	public synchronized void withdraw(int amount) {
 		String tName = Thread.currentThread().getName();
 		
 		// 目前帳戶餘額
