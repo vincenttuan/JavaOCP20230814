@@ -1,8 +1,12 @@
 package day23;
 
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
 public class BankAccount {
 	private int balance;
-
+	private final Lock lock = new ReentrantLock();
+	
 	public BankAccount(int balance) {
 		this.balance = balance;
 	}
@@ -24,4 +28,16 @@ public class BankAccount {
 		}
 
 	}
+	
+	// 存款
+	public void deposit(int amount) {
+		String tName = Thread.currentThread().getName();
+		lock.lock(); // 鎖定 this 物件
+		try {
+			System.out.printf("%s 存款 $%d (成功) 餘額 $%d%n", tName, amount, this.balance);
+		} finally {
+			lock.unlock(); // 釋放鎖 
+		}
+	}
+	
 }
