@@ -14,7 +14,7 @@ public class FileReaderAndWriter {
 		@Override
 		public void run() {
 			try {
-				Thread.sleep(5000);
+				Thread.sleep(1000);
 				System.out.println("資料寫入到檔案");
 			} catch (Exception e) {
 				
@@ -42,9 +42,13 @@ public class FileReaderAndWriter {
 		Callable<String> readerTask = new FileReaderTask();
 		
 		// 執行任務工作
-		service.execute(writeTask);
+		//service.execute(writeTask);
+		
 		//Future fut = service.submit(writeTask);
 		//System.out.println(fut.get()); // 得到 null
+		
+		Future fut = service.submit(writeTask, "寫入完畢");
+		System.out.println(fut.get()); // 得到 寫入完畢
 		
 		Future<String> future = service.submit(readerTask);
 		System.out.println(future.get());
