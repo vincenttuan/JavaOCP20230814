@@ -3,6 +3,7 @@ package day23;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 // 多執行緒檔案讀取與寫入
 // Runnable 負責寫入檔案
@@ -36,7 +37,8 @@ public class FileReaderAndWriter {
 		
 		// 執行任務工作
 		service.execute(writeTask);
-		service.submit(readerTask);
+		Future<String> future = service.submit(readerTask);
+		System.out.println(future.get());
 		
 		service.shutdown();
 	}
