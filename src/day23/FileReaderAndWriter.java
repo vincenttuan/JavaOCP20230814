@@ -3,6 +3,7 @@ package day23;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -21,7 +22,7 @@ public class FileReaderAndWriter {
 				// 將 "Hello Java" 寫入到 data.txt 中
 				String content = "Hello Java";
 				Path path = Paths.get("src/day23/data.txt");
-				Files.write(path, content.getBytes());
+				Files.write(path, content.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.APPEND);
 				System.out.println("資料寫入到檔案");
 			} catch (Exception e) {
 				
