@@ -17,7 +17,7 @@ public class FileReaderAndWriter {
 		@Override
 		public void run() {
 			try {
-				Thread.sleep(1000);
+				//Thread.sleep(1000);
 				// 將 "Hello Java" 寫入到 data.txt 中
 				String content = "Hello Java";
 				Path path = Paths.get("src/day23/data.txt");
