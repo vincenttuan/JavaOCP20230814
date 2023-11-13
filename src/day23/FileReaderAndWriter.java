@@ -36,7 +36,10 @@ public class FileReaderAndWriter {
 		@Override
 		public String call() throws Exception {
 			// 資料從檔案中讀取
-			return "檔案的資料...";
+			Path path = Paths.get("src/day23/data.txt");
+			byte[] bytes =  Files.readAllBytes(path);
+			String content = new String(bytes); // byte[] 轉 String
+			return "檔案的資料: " + content;
 		}
 		
 	}
