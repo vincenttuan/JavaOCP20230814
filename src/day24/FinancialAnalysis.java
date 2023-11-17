@@ -66,7 +66,7 @@ public class FinancialAnalysis extends Thread {
 	
 	public static void main(String[] args) {
 		CyclicBarrier cb = new CyclicBarrier(2, () -> {
-			System.out.println("數據讀取完成, 開始計算成本");
+			System.out.println("數據讀取完成, 開始計算成本 ! thread name = " + Thread.currentThread().getName());
 		});
 		
 		new FinancialAnalysis(cb, "src/day24/stock_market.txt", "stockThread").start(); // 讀股票報價檔
