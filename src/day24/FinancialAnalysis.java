@@ -12,9 +12,10 @@ public class FinancialAnalysis extends Thread {
 	private double stockPrice = 0;
 	private double exchangeRate = 0;
 	
-	public FinancialAnalysis(CyclicBarrier cyclicBarrier, String filePath) {
+	public FinancialAnalysis(CyclicBarrier cyclicBarrier, String filePath, String threadName) {
 		this.cyclicBarrier = cyclicBarrier;
 		this.filePath = filePath;
+		this.setName(threadName); // 設定執行緒名字
 	}
 	
 	private void readData() throws Exception {
@@ -22,14 +23,19 @@ public class FinancialAnalysis extends Thread {
 		for(String line : lines) {
 			String[] data = line.split(",");
 			
-			// stock_market.txt
-			if(data[1].equals("2330")) {
-				stockPrice = Double.parseDouble(data[2]);
-			}
-			
-			// exchange_market.txt
-			if(data[1].equals("USD/TWD")) {
-				exchangeRate = Double.parseDouble(data[2]);
+			switch (Thread.currentThread().getName()) {
+				case "stockThread":
+					// stock_market.txt
+					if(data[1].equals("2330")) {
+						stockPrice = Double.parseDouble(data[2]);
+					}	
+					break;
+				case "exchangeThread":
+					// exchange_market.txt
+					if(data[1].equals("USD/TWD")) {
+						exchangeRate = Double.parseDouble(data[2]);
+					}	
+					break;
 			}
 			
 		}
@@ -45,6 +51,8 @@ public class FinancialAnalysis extends Thread {
 			cyclicBarrier.await();
 			
 			// 計算成本
+			System.out.println("stockPrice: " + stockPrice);
+			System.out.println("exchangeRate: " + exchangeRate);
 			double totalCostInTWD = stockPrice * 5000;
 			double totalCostInUSD = totalCostInTWD / exchangeRate;
 			System.out.printf("購買 5000 股 2330 股票需要 $%.1f 美金%n", totalCostInUSD);
@@ -59,8 +67,8 @@ public class FinancialAnalysis extends Thread {
 			System.out.println("數據讀取完成, 開始計算成本");
 		});
 		
-		new FinancialAnalysis(cb, "src/day24/stock_market.txt").start(); // 讀股票報價檔
-		new FinancialAnalysis(cb, "src/day24/exchange_market.txt").start(); // 讀匯率報價檔
+		new FinancialAnalysis(cb, "src/day24/stock_market.txt", "stockThread").start(); // 讀股票報價檔
+		new FinancialAnalysis(cb, "src/day24/exchange_market.txt", "exchangeThread").start(); // 讀匯率報價檔
 		
 	}
 	
