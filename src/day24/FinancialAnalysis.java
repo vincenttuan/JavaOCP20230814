@@ -9,8 +9,8 @@ import java.util.concurrent.CyclicBarrier;
 public class FinancialAnalysis extends Thread {
 	private CyclicBarrier cyclicBarrier;
 	private String filePath;
-	private double stockPrice = 0;
-	private double exchangeRate = 0;
+	private static double stockPrice = 0;
+	private static double exchangeRate = 0;
 	
 	public FinancialAnalysis(CyclicBarrier cyclicBarrier, String filePath, String threadName) {
 		this.cyclicBarrier = cyclicBarrier;
@@ -50,12 +50,14 @@ public class FinancialAnalysis extends Thread {
 			// 等其他執行緒完成讀取任務 
 			cyclicBarrier.await();
 			
-			// 計算成本
-			System.out.println("stockPrice: " + stockPrice);
-			System.out.println("exchangeRate: " + exchangeRate);
-			double totalCostInTWD = stockPrice * 5000;
-			double totalCostInUSD = totalCostInTWD / exchangeRate;
-			System.out.printf("購買 5000 股 2330 股票需要 $%.1f 美金%n", totalCostInUSD);
+			// 計算成本-可以交給特定執行緒執行
+			if(Thread.currentThread().getName().equals("exchangeThread")) {
+				System.out.println("stockPrice: " + stockPrice);
+				System.out.println("exchangeRate: " + exchangeRate);
+				double totalCostInTWD = stockPrice * 5000;
+				double totalCostInUSD = totalCostInTWD / exchangeRate;
+				System.out.printf("購買 5000 股 2330 股票需要 $%.1f 美金%n", totalCostInUSD);
+			}
 			
 		} catch (Exception e) {
 			e.printStackTrace();
