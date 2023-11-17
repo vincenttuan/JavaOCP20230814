@@ -53,4 +53,15 @@ public class FinancialAnalysis extends Thread {
 			e.printStackTrace();
 		}
 	}
+	
+	public static void main(String[] args) {
+		CyclicBarrier cb = new CyclicBarrier(2, () -> {
+			System.out.println("數據讀取完成, 開始計算成本");
+		});
+		
+		new FinancialAnalysis(cb, "src/day24/stock_market.txt").start(); // 讀股票報價檔
+		new FinancialAnalysis(cb, "src/day24/exchange_market.txt").start(); // 讀匯率報價檔
+		
+	}
+	
 }
