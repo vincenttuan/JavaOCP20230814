@@ -31,7 +31,13 @@ public class FinancialDataCollector extends Thread {
 	}
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		int n = 5;
+		CyclicBarrier cb = new CyclicBarrier(n, () -> {
+			System.out.println("所有數據蒐集完成, 可以開始進行整體分析工作");
+		});
+		for(int i=0;i<n;i++) {
+			new FinancialDataCollector(cb, "資料項目:" + i).start();
+		}
 
 	}
 
