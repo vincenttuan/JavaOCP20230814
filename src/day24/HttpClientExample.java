@@ -11,12 +11,12 @@ public class HttpClientExample {
 
 	public static void main(String[] args) {
 		HttpClient client = HttpClient.newBuilder()
-				.version(Version.HTTP_1_1)
+				.version(Version.HTTP_2)
 				.connectTimeout(Duration.ofSeconds(20))
 				.build();
 		
 		HttpRequest request = HttpRequest.newBuilder()
-				.uri(URI.create("http://localhost:3000/posts"))
+				.uri(URI.create("http://127.0.0.1:3000/posts"))
 				.header("Content-Type", "application/json")
 				.GET()
 				.build();
