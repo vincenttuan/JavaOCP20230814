@@ -37,6 +37,17 @@ public class FinancialAnalysis extends Thread {
 	
 	@Override
 	public void run() {
-		
+		try {
+			readData();
+			cyclicBarrier.await();
+			
+			// 計算成本
+			double totalCostInTWD = stockPrice * 5000;
+			double totalCostInUSD = totalCostInTWD / exchangeRate;
+			System.out.printf("購買 5000 股 2330 股票需要 $%.1f 美金%n", totalCostInUSD);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }
