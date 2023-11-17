@@ -38,7 +38,10 @@ public class FinancialAnalysis extends Thread {
 	@Override
 	public void run() {
 		try {
+			// 讀取檔案資料
 			readData();
+			
+			// 等其他執行緒完成讀取任務 
 			cyclicBarrier.await();
 			
 			// 計算成本
