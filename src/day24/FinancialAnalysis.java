@@ -56,7 +56,7 @@ public class FinancialAnalysis extends Thread {
 				System.out.println("exchangeRate: " + exchangeRate);
 				double totalCostInTWD = stockPrice * 5000;
 				double totalCostInUSD = totalCostInTWD / exchangeRate;
-				System.out.printf("購買 5000 股 2330 股票需要 $%.1f 美金%n", totalCostInUSD);
+				System.out.printf("購買 5000 股 2330 股票需要 $%,.1f 美金%n", totalCostInUSD);
 			}
 			
 		} catch (Exception e) {
