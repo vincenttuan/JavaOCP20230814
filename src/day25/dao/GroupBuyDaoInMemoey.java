@@ -62,13 +62,12 @@ public class GroupBuyDaoInMemoey implements GroupBuyDao {
 
 	@Override
 	public void addProduct(Product product) {
-		// TODO Auto-generated method stub
-		
+		products.add(product);
 	}
 
 	@Override
 	public Boolean updateProductLaunch(Integer productId, Boolean isLaunch) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
