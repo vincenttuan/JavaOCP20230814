@@ -73,14 +73,12 @@ public class GroupBuyDaoInMemoey implements GroupBuyDao {
 
 	@Override
 	public void addCart(Cart cart) {
-		// TODO Auto-generated method stub
-		
+		carts.add(cart);
 	}
 
 	@Override
 	public void addCartItem(CartItem cartItem) {
-		// TODO Auto-generated method stub
-		
+		cartItems.add(cartItem);
 	}
 
 	@Override
