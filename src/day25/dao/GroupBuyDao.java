@@ -8,7 +8,7 @@ import day25.entity.CartItem;
 import day25.entity.Product;
 import day25.entity.User;
 
-public interface GroupBuydao {
+public interface GroupBuyDao {
 //	使用者-User:
 //	1. 查詢所有使用者(多筆)
 	List<User> findAllUsers();
