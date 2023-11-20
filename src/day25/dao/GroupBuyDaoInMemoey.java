@@ -107,10 +107,15 @@ public class GroupBuyDaoInMemoey implements GroupBuyDao {
 
 	@Override
 	public List<Cart> findCartsbyUserIdAndCheckoutStatus(Integer userId, Boolean isCheckout) {
+		/*
 		return carts.stream()
 					.filter(cart -> cart.getUserId().equals(userId))
 					.filter(cart -> cart.getIsCheckout().equals(isCheckout))
 					.collect(toList());
+		*/			
+		return carts.stream()
+				.filter(cart -> cart.getUserId().equals(userId) && cart.getIsCheckout().equals(isCheckout))
+				.collect(toList());
 	}
 
 	@Override
