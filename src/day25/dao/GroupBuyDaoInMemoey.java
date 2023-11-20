@@ -3,6 +3,7 @@ package day25.dao;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.CopyOnWriteArrayList;
+import static java.util.stream.Collectors.toList;
 
 import day25.entity.Cart;
 import day25.entity.CartItem;
@@ -86,26 +87,22 @@ public class GroupBuyDaoInMemoey implements GroupBuyDao {
 
 	@Override
 	public List<Cart> findAllCart() {
-		// TODO Auto-generated method stub
-		return null;
+		return carts;
 	}
 
 	@Override
 	public Optional<Cart> findCartById(Integer cartId) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
+		return carts.stream().filter(cart -> cart.getCartId().intValue() == cartId.intValue()).findAny();
 	}
 
 	@Override
 	public Optional<CartItem> findCartItemById(Integer itemId) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
+		return cartItems.stream().filter(cartItem -> cartItem.getItemId().equals(itemId)).findAny();
 	}
 
 	@Override
 	public List<Cart> findCartsByUserId(Integer userId) {
-		// TODO Auto-generated method stub
-		return null;
+		return carts.stream().filter(cart -> cart.getUserId().equals(userId)).collect(toList());
 	}
 
 	@Override
