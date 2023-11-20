@@ -7,11 +7,12 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.Duration;
 
+// 啟動指令: json-server --watch db.json --host 127.0.0.1
 public class HttpClientExample {
 
 	public static void main(String[] args) {
 		HttpClient client = HttpClient.newBuilder()
-				.version(Version.HTTP_2)
+				.version(Version.HTTP_1_1)
 				.connectTimeout(Duration.ofSeconds(20))
 				.build();
 		
