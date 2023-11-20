@@ -73,5 +73,5 @@ public interface GroupBuyDao {
 	Boolean removeCartItemById(Integer cartItemId);
 	
 //	12. 更新購物車項目的數量
-	Boolean updateCartItemQuantity(Integer cartItem, Integer quantity);
+	Boolean updateCartItemQuantity(Integer cartItemId, Integer quantity);
 }

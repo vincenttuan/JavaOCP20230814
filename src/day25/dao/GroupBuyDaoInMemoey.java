@@ -140,20 +140,31 @@ public class GroupBuyDaoInMemoey implements GroupBuyDao {
 
 	@Override
 	public Boolean checkoutCartById(Integer cartId) {
-		// TODO Auto-generated method stub
-		return null;
+		return carts.stream()
+				.filter(cart -> cart.getCartId().equals(cartId))
+				.peek(cart -> cart.setIsCheckout(true)) // 結帳
+				.findAny().isPresent();
 	}
 
 	@Override
 	public Boolean removeCartItemById(Integer cartItemId) {
-		// TODO Auto-generated method stub
-		return null;
+		Optional<CartItem> cartItemOpt = cartItems.stream()
+				.filter(cartItem -> cartItem.getItemId().equals(cartItemId))
+				.findAny();
+		if(cartItemOpt.isPresent()) {
+			cartItems.remove(cartItemOpt.get()); // 移除
+			return true;
+		}
+		return false;
 	}
 
 	@Override
-	public Boolean updateCartItemQuantity(Integer cartItem, Integer quantity) {
-		// TODO Auto-generated method stub
-		return null;
+	public Boolean updateCartItemQuantity(Integer cartItemId, Integer quantity) {
+		return cartItems.stream()
+						.filter(cartItem -> cartItem.getItemId().equals(cartItemId))
+						.peek(cartItem -> cartItem.setQuantity(quantity))
+						.findAny()
+						.isPresent();
 	}
 	
 }
