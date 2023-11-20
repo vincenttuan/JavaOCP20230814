@@ -67,8 +67,11 @@ public class GroupBuyDaoInMemoey implements GroupBuyDao {
 
 	@Override
 	public Boolean updateProductLaunch(Integer productId, Boolean isLaunch) {
-		
-		return null;
+		return products.stream()
+					   .filter(product -> product.getProductId().equals(productId))
+					   .peek(product -> product.setIsLaunch(isLaunch))
+					   .findAny()
+					   .isPresent();
 	}
 
 	@Override
