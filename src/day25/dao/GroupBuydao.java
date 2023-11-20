@@ -1,13 +1,21 @@
 package day25.dao;
 
+import java.util.List;
+
+import day25.entity.User;
+
 public interface GroupBuydao {
 //	使用者-User:
 //	1. 查詢所有使用者(多筆)
+	List<User> findAllUsers();
 	
 //	2. 新增使用者
 	
+	
 //	3. 修改密碼
+	
 //	4. 根據使用者名稱查找使用者(登入用-單筆)
+	
 //	5. 根據使用者ID查找使用者(單筆)
 //
 //	商品-Product
