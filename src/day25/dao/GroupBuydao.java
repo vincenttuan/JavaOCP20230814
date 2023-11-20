@@ -3,6 +3,8 @@ package day25.dao;
 import java.util.List;
 import java.util.Optional;
 
+import day25.entity.Cart;
+import day25.entity.CartItem;
 import day25.entity.Product;
 import day25.entity.User;
 
@@ -38,15 +40,38 @@ public interface GroupBuydao {
 //
 //	購物車/購物車項目(Cart/CartItem)
 //	1. 新增購物車資料
+	void addCart(Cart cart);
+	
 //	2. 新增購物車項目資料
+	void addCartItem(CartItem cartItem);
+	
 //	3. 查詢所有購物車資料(多筆)
+	List<Cart> findAllCart();
+	
 //	4. 根據購物車ID查找購物車資料(單筆)
+	Optional<Cart> findCartById(Integer cartId);
+	
 //	5. 根據購物車項目ID查找購物車項目資料(單筆)
-//	6. 根據使用者ID來查找其所有購物車資料
-//	7. 根據使用者ID及結帳狀態來查找其所有購物車資料
-//	8. 根據使用者ID來查找其未結帳的購物車資料
+	Optional<CartItem> findCartItemById(Integer itemId);
+	
+//	6. 根據使用者ID來查找其所有購物車資料(多筆)
+	List<Cart> findCartsByUserId(Integer userId);
+	
+//	7. 根據使用者ID及結帳狀態來查找其所有購物車資料(多筆)
+	List<Cart> findCartsbyUserIdAndCheckoutStatus(Integer userId, Boolean isCheckout);
+	
+//	8. 根據使用者ID來查找其未結帳的購物車資料(單筆)
+	Optional<Cart> findNoneCheckoutCartByUserId(Integer userId);
+	
 //	9. 根據使用者ID將該使用者的購物車設置為已結帳狀態(前台的事件)
+	Boolean checkoutCartByUserId(Integer userId);
+	
 //	10. 根據購物車ID將購物車設置為已結帳狀態(後台的事件)
+	Boolean checkoutCartById(Integer cartId);
+	
 //	11. 根據購物車項目ID刪除指定的購物車項目
+	Boolean removeCartItemById(Integer cartItemId);
+	
 //	12. 更新購物車項目的數量
+	Boolean updateCartItemQuantity(Integer cartItem, Integer quantity);
 }
