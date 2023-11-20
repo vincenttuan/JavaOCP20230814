@@ -42,26 +42,22 @@ public class GroupBuyDaoInMemoey implements GroupBuyDao {
 
 	@Override
 	public Optional<User> findUserByUsername(String username) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
+		return users.stream().filter(user -> user.getUsername().equals(username)).findAny();
 	}
 
 	@Override
 	public Optional<User> findUserById(Integer userId) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
+		return users.stream().filter(user -> user.getUserId().equals(userId)).findAny();
 	}
 
 	@Override
 	public List<Product> findAllProducts() {
-		// TODO Auto-generated method stub
-		return null;
+		return products;
 	}
 
 	@Override
 	public Optional<Product> findProductById(Integer productId) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
+		return products.stream().filter(product -> product.getProductId().equals(productId)).findAny();
 	}
 
 	@Override
