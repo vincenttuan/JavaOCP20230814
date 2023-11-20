@@ -16,10 +16,11 @@ package day25.entity;
 public class CartItem {
 	private Integer itemId; // 購物車明細 Id
 	private Integer cartId; // 購物車 Id
-	private Cart cart; // 購物車物件
 	private Integer productId; // 商品 Id
-	private Product product; // 商品物件
 	private Integer quantity; // 數量
+	
+	private Cart cart; // 購物車物件(關聯欄位)
+	private Product product; // 商品物件(關聯欄位)
 	
 	public CartItem() {
 		

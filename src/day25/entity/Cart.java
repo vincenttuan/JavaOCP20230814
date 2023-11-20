@@ -18,10 +18,11 @@ import java.util.List;
 public class Cart {
 	private Integer cartId; // 購物車 Id
 	private Integer userId; // 使用者 Id
-	private User user; // 使用者物件
-	private List<CartItem> cartItems; // 購物車明細
 	private Boolean isCheckout; // 是否結帳
 	private Date checkoutTime; // 結帳時間
+	
+	private User user; // 使用者物件(關聯欄位)
+	private List<CartItem> cartItems; // 購物車明細(關聯欄位)
 	
 	public Cart() {
 		
