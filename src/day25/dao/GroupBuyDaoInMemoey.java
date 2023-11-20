@@ -18,23 +18,26 @@ public class GroupBuyDaoInMemoey implements GroupBuyDao {
 	private static List<Cart> carts = new CopyOnWriteArrayList<>();
 	private static List<CartItem> cartItems = new CopyOnWriteArrayList<>();
 	
-	
 	@Override
 	public List<User> findAllUsers() {
-		// TODO Auto-generated method stub
-		return null;
+		return users;
 	}
 
 	@Override
 	public void addUser(User user) {
-		// TODO Auto-generated method stub
-		
+		users.add(user);
 	}
 
 	@Override
 	public Boolean updateUserPassword(Integer userId, String newPassword) {
-		// TODO Auto-generated method stub
-		return null;
+		Optional<User> userOpt = users.stream()
+									  .filter(user -> user.getUserId().equals(userId))
+									  .findAny();
+		if(userOpt.isPresent()) {
+			userOpt.get().setPassword(newPassword); // 找到就設定 password
+			return true;
+		}
+		return false;
 	}
 
 	@Override
