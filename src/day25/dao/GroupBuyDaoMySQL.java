@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import javax.print.attribute.PrintServiceAttribute;
+
 import day25.entity.Cart;
 import day25.entity.CartItem;
 import day25.entity.Product;
@@ -184,8 +186,16 @@ public class GroupBuyDaoMySQL implements GroupBuyDao {
 
 	@Override
 	public void addProduct(Product product) {
-		// TODO Auto-generated method stub
-		
+		String sql = "insert into product(productName, price, unit, isLaunch) values(?, ?, ? ,?)";
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setString(1, product.getProductName());
+			pstmt.setInt(2, product.getPrice());
+			pstmt.setString(3, product.getUnit());
+			pstmt.setBoolean(4, product.getIsLaunch());
+			pstmt.executeUpdate();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}  
 	}
 
 	@Override
