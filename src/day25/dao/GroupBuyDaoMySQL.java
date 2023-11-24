@@ -435,8 +435,19 @@ public class GroupBuyDaoMySQL implements GroupBuyDao {
 
 	@Override
 	public Boolean updateCartItemQuantity(Integer cartItemId, Integer quantity) {
-		// TODO Auto-generated method stub
-		return null;
+		if(findCartItemById(cartItemId).isEmpty()) {
+			return false;
+		}
+		String sql = "update CartItem set quantity = ? where itemId = ?";
+		int rowcount = 0;
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setInt(1, quantity);
+			pstmt.setInt(2, cartItemId);
+			rowcount = pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return rowcount == 1;
 	}
 	
 }
