@@ -2,6 +2,7 @@ package day25.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -58,8 +59,15 @@ public class GroupBuyDaoMySQL implements GroupBuyDao {
 
 	@Override
 	public void addUser(User user) {
-		// TODO Auto-generated method stub
-		
+		String sql = "insert into user(username, password, level) values(?, ?, ?)";
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setString(1, user.getUsername());
+			pstmt.setString(2, user.getPassword());
+			pstmt.setInt(3, user.getLevel());
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
