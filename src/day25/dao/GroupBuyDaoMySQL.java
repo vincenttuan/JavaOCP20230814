@@ -2,6 +2,9 @@ package day25.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,8 +37,23 @@ public class GroupBuyDaoMySQL implements GroupBuyDao {
 	
 	@Override
 	public List<User> findAllUsers() {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "select userId, username, password, level from user";
+		List<User> users = new ArrayList<>();
+		
+		try(Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);) {
+			while (rs.next()) {
+				User user = new User(
+						rs.getInt("userId"), 
+						rs.getString("username"), 
+						rs.getString("password"), 
+						rs.getInt("level"));
+				users.add(user);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return users;
 	}
 
 	@Override
