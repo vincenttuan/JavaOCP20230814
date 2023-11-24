@@ -5,10 +5,32 @@ import javax.sql.DataSource;
 import java.util.List;
 import java.util.Optional;
 
+/*
+
+<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-jdbc</artifactId>
+    <version>6.1.1</version>
+</dependency>
+
+*/
 public class GroupBuyDaoJdbcTemplate implements GroupBuyDao {
     private JdbcTemplate jdbcTemplate;
 
-    public GroupBuyDaoJdbcTemplate(DataSource dataSource) {
+    public GroupBuyDaoJdbcTemplate() {
+        String dbUrl = "jdbc:mysql://localhost:3306/group_buy";
+        String username = "root";
+        String password = "12345678";
+
+        // 創建 DriverManagerDataSource 實例
+        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver"); // MySQL 驅動
+        dataSource.setUrl(dbUrl);
+        dataSource.setUsername(username);
+        dataSource.setPassword(password);
+
+        // 使用數據源創建 JdbcTemplate
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
