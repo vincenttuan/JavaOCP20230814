@@ -27,9 +27,11 @@ public class GroupBuyDaoMySQL implements GroupBuyDao {
 	protected void finalize() throws Throwable {
 		conn.close();
 	}
-
-
-
+	
+	public static GroupBuyDao getInstance() {
+		return _instance;
+	}
+	
 	@Override
 	public List<User> findAllUsers() {
 		// TODO Auto-generated method stub
