@@ -338,8 +338,28 @@ public class GroupBuyDaoMySQL implements GroupBuyDao {
 
 	@Override
 	public List<Cart> findCartsbyUserIdAndCheckoutStatus(Integer userId, Boolean isCheckout) {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "select cartId, userId, isCheckout, checkoutTime from Cart where userId = ? and isCheckout = ?";
+		List<Cart> carts = new ArrayList<>();
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setInt(1, userId);
+			pstmt.setBoolean(2, isCheckout);
+			
+			try(ResultSet rs = pstmt.executeQuery()) {
+			
+				while (rs.next()) {
+					carts.add(new Cart(
+							rs.getInt("cartId"), 
+							rs.getInt("userId"),
+							rs.getBoolean("isCheckout"),
+							rs.getDate("checkoutTime")));
+				}
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return carts;
 	}
 
 	@Override
