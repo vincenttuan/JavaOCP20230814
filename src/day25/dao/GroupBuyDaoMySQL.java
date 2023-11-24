@@ -259,7 +259,7 @@ public class GroupBuyDaoMySQL implements GroupBuyDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return null;
+		return carts;
 	}
 
 	@Override
