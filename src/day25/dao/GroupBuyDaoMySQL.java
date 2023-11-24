@@ -72,14 +72,44 @@ public class GroupBuyDaoMySQL implements GroupBuyDao {
 
 	@Override
 	public Boolean updateUserPassword(Integer userId, String newPassword) {
-		
-		return null;
+		Optional<User> userOpt = findUserById(userId);
+		if(userOpt.isEmpty()) {
+			return false;
+		}
+		String sql = "update user set password = ? where userId = ?";
+		int rowcount = 0;
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setString(1, newPassword);
+			pstmt.setInt(2, userId);
+			rowcount = pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		return rowcount == 1;
 	}
 
 	@Override
 	public Optional<User> findUserByUsername(String username) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
+		String sql = "select userId, username, password, level from user where username = ?";
+		User user = null;
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setString(1, username);
+			
+			try(ResultSet rs = pstmt.executeQuery()) {
+				if(rs.next()) {
+					user = new User(
+							rs.getInt("userId"), 
+							rs.getString("username"), 
+							rs.getString("password"), 
+							rs.getInt("level"));  
+				}
+			} 
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return Optional.ofNullable(user);
 	}
 
 	@Override
