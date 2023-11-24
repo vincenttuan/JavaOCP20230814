@@ -219,13 +219,27 @@ public class GroupBuyDaoMySQL implements GroupBuyDao {
 
 	@Override
 	public void addCart(Cart cart) {
-		// TODO Auto-generated method stub
-		
+		String sql = "insert into cart(userId, isCheckout) values(?, ?)";
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setInt(1, cart.getUserId());
+			pstmt.setBoolean(2, cart.getIsCheckout());
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
 	public void addCartItem(CartItem cartItem) {
-		// TODO Auto-generated method stub
+		String sql = "insert into cartitem(cartId, productId, quantity) values(?, ?, ?)";
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setInt(1, cartItem.getCartId());
+			pstmt.setInt(2, cartItem.getProductId());
+			pstmt.setInt(3, cartItem.getQuantity());
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 	}
 
