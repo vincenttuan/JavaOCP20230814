@@ -138,8 +138,24 @@ public class GroupBuyDaoMySQL implements GroupBuyDao {
 
 	@Override
 	public List<Product> findAllProducts() {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "select productId, productName, price, unit, isLaunch from product";
+		List<Product> products = new ArrayList<>();
+		try(Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(sql)) {
+			
+			while (rs.next()) {
+				products.add(new Product(
+						rs.getInt("productId"), 
+						rs.getString("productName"), 
+						rs.getInt("price"), 
+						rs.getString("unit"), 
+						rs.getBoolean("isLaunch")));
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return products;
 	}
 
 	@Override
