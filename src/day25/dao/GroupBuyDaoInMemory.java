@@ -11,7 +11,7 @@ import day25.entity.Product;
 import day25.entity.User;
 
 // In-Memory
-public class GroupBuyDaoInMemoey implements GroupBuyDao {
+public class GroupBuyDaoInMemory implements GroupBuyDao {
 	
 	// In-Memory List
 	private static List<User> users = new CopyOnWriteArrayList<>();
