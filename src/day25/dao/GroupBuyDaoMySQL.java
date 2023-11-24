@@ -200,8 +200,21 @@ public class GroupBuyDaoMySQL implements GroupBuyDao {
 
 	@Override
 	public Boolean updateProductLaunch(Integer productId, Boolean isLaunch) {
-		// TODO Auto-generated method stub
-		return null;
+		Optional<Product> productOpt = findProductById(productId);
+		if(productOpt.isEmpty()) {
+			return false;
+		}
+		String sql = "update product set isLaunch = ? where productId = ?";
+		int rowcount = 0;
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setBoolean(1, isLaunch);
+			pstmt.setInt(2, productId);
+			rowcount = pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return rowcount == 1;
 	}
 
 	@Override
