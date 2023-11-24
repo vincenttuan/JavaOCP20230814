@@ -269,10 +269,21 @@ public class GroupBuyDaoMySQL implements GroupBuyDao {
 		String sql = "select cartId, userId, isCheckout, checkoutTime from cart where cartId = ?";
 		Cart cart = null;
 		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setInt(1, cartId);
 			
+			try(ResultSet rs = pstmt.executeQuery()) {
+				
+				if(rs.next()) {
+					cart = new Cart(
+							rs.getInt("cartId"), 
+							rs.getInt("userId"),
+							rs.getBoolean("isCheckout"),
+							rs.getDate("checkoutTime"));
+				}
+			}
 			
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
 		return Optional.ofNullable(cart);
 	}
