@@ -250,11 +250,13 @@ public class GroupBuyDaoMySQL implements GroupBuyDao {
 		try(Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(sql)) {
 			
-			carts.add(new Cart(
-					rs.getInt("cartId"), 
-					rs.getInt("userId"),
-					rs.getBoolean("isCheckout"),
-					rs.getDate("checkoutTime")));
+			while(rs.next()) {
+				carts.add(new Cart(
+						rs.getInt("cartId"), 
+						rs.getInt("userId"),
+						rs.getBoolean("isCheckout"),
+						rs.getDate("checkoutTime")));
+			}
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -264,8 +266,15 @@ public class GroupBuyDaoMySQL implements GroupBuyDao {
 
 	@Override
 	public Optional<Cart> findCartById(Integer cartId) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
+		String sql = "select cartId, userId, isCheckout, checkoutTime from cart where cartId = ?";
+		Cart cart = null;
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return Optional.ofNullable(cart);
 	}
 
 	@Override
