@@ -388,14 +388,36 @@ public class GroupBuyDaoMySQL implements GroupBuyDao {
 
 	@Override
 	public Boolean checkoutCartByUserId(Integer userId) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		if(findCartsByUserId(userId).isEmpty()) {
+			return false;
+		}
+		
+		String sql = "update cart set isCheckout = true where userId = ? and (isCheckout = false or isCheckout is null)";
+		int rowcount = 0;
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setInt(1, userId);
+			rowcount = pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return rowcount == 1;
 	}
 
 	@Override
 	public Boolean checkoutCartById(Integer cartId) {
-		// TODO Auto-generated method stub
-		return null;
+		if(findCartById(cartId).isEmpty()) {
+			return false;
+		}
+		String sql = "update cart set isCheckout = true where cartId = ? and (isCheckout = false or isCheckout is null)";
+		int rowcount = 0;
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setInt(1, cartId);
+			rowcount = pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return rowcount == 1;
 	}
 
 	@Override
