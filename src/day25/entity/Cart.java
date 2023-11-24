@@ -28,6 +28,14 @@ public class Cart {
 		
 	}
 	
+	public Cart(Integer cartId, Integer userId, Boolean isCheckout, Date checkoutTime) {
+		this.cartId = cartId;
+		this.userId = userId;
+		this.checkoutTime = checkoutTime;
+		setIsCheckout(isCheckout);
+		
+	}
+	
 	public Cart(Integer cartId, Integer userId, List<CartItem> cartItems, Boolean isCheckout) {
 		this.cartId = cartId;
 		this.userId = userId;
