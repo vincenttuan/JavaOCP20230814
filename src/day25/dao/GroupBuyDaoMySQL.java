@@ -21,7 +21,7 @@ public class GroupBuyDaoMySQL implements GroupBuyDao {
 	private GroupBuyDaoMySQL() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/groupbuy", "root", "12345678");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/group_buy", "root", "12345678");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
