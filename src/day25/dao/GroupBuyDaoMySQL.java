@@ -364,8 +364,26 @@ public class GroupBuyDaoMySQL implements GroupBuyDao {
 
 	@Override
 	public Optional<Cart> findNoneCheckoutCartByUserId(Integer userId) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
+		String sql = "select cartId, userId, isCheckout, checkoutTime from cart where userId = ? and (isCheckout = false or isCheckout is null)";
+		Cart cart = null;
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setInt(1, userId);
+			
+			try(ResultSet rs = pstmt.executeQuery()) {
+				
+				if(rs.next()) {
+					cart = new Cart(
+							rs.getInt("cartId"), 
+							rs.getInt("userId"),
+							rs.getBoolean("isCheckout"),
+							rs.getDate("checkoutTime"));
+				}
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return Optional.ofNullable(cart);
 	}
 
 	@Override
