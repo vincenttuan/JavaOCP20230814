@@ -72,7 +72,7 @@ public class GroupBuyDaoMySQL implements GroupBuyDao {
 
 	@Override
 	public Boolean updateUserPassword(Integer userId, String newPassword) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
@@ -84,8 +84,26 @@ public class GroupBuyDaoMySQL implements GroupBuyDao {
 
 	@Override
 	public Optional<User> findUserById(Integer userId) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
+		//return findAllUsers().stream().filter(user -> user.getUserId().equals(userId)).findAny();
+		String sql = "select userId, username, password, level from user where userId = ?";
+		User user = null;
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setInt(1, userId);
+			
+			try(ResultSet rs = pstmt.executeQuery()) {
+				if(rs.next()) {
+					user = new User(
+							rs.getInt("userId"), 
+							rs.getString("username"), 
+							rs.getString("password"), 
+							rs.getInt("level"));  
+				}
+			} 
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return Optional.ofNullable(user);
 	}
 
 	@Override
